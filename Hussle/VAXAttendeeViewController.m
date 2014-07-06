@@ -1,14 +1,14 @@
 //
-//  VAXAddToDoItemViewController.m
-//  ToDoList7.1
+//  VAXAttendeeViewController.m
+//  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
 //  Copyright (c) 2014 Vaxis Technologies. All rights reserved.
 //
 
-#import "VAXAddToDoItemViewController.h"
+#import "VAXAttendeeViewController.h"
 
-@interface VAXAddToDoItemViewController ()
+@interface VAXAttendeeViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation VAXAddToDoItemViewController
+@implementation VAXAttendeeViewController
 
 
 // LAST ADD
@@ -24,9 +24,9 @@
 {
     if (sender != self.doneButton) return;
     if (self.textField.text.length > 0) {
-        self.toDoItem = [[VAXToDoItem alloc] init];
-        self.toDoItem.itemName = self.textField.text;
-        self.toDoItem.completed = NO;
+        self.attendee = [[VAXAttendee alloc] init];
+        self.attendee.attendeeName = self.textField.text;
+        self.attendee.completed = NO;
     }
 }
 

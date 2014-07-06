@@ -1,13 +1,13 @@
 //
-//  VAXToDoItem.m
-//  ToDoList7.1
+//  VAXAttendee.m
+//  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
 //  Copyright (c) 2014 Vaxis Technologies. All rights reserved.
 //
 
-#import "VAXToDoItem.h"
+#import "VAXAttendee.h"
 
-@implementation VAXToDoItem
+@implementation VAXAttendee
 
 @end

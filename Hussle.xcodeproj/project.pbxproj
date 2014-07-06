@@ -20,9 +20,9 @@
 		88BF0D2A1969AE3900F49C36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88BF0D281969AE3900F49C36 /* InfoPlist.strings */; };
 		88BF0D2C1969AE3900F49C36 /* HussleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D2B1969AE3900F49C36 /* HussleTests.m */; };
 		88BF0D361969AF5C00F49C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BF0D351969AF5C00F49C36 /* Main.storyboard */; };
-		88BF0D3D1969AF7E00F49C36 /* VAXToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D381969AF7E00F49C36 /* VAXToDoItem.m */; };
-		88BF0D3E1969AF7E00F49C36 /* VAXToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3A1969AF7E00F49C36 /* VAXToDoListTableViewController.m */; };
-		88BF0D3F1969AF7E00F49C36 /* VAXAddToDoItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3C1969AF7E00F49C36 /* VAXAddToDoItemViewController.m */; };
+		88BF0D3D1969AF7E00F49C36 /* VAXAttendee.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D381969AF7E00F49C36 /* VAXAttendee.m */; };
+		88BF0D3E1969AF7E00F49C36 /* VAXAttendeeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3A1969AF7E00F49C36 /* VAXAttendeeListTableViewController.m */; };
+		88BF0D3F1969AF7E00F49C36 /* VAXAttendeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3C1969AF7E00F49C36 /* VAXAttendeeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +53,12 @@
 		88BF0D291969AE3900F49C36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		88BF0D2B1969AE3900F49C36 /* HussleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HussleTests.m; sourceTree = "<group>"; };
 		88BF0D351969AF5C00F49C36 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		88BF0D371969AF7E00F49C36 /* VAXToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXToDoItem.h; sourceTree = "<group>"; };
-		88BF0D381969AF7E00F49C36 /* VAXToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXToDoItem.m; sourceTree = "<group>"; };
-		88BF0D391969AF7E00F49C36 /* VAXToDoListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXToDoListTableViewController.h; sourceTree = "<group>"; };
-		88BF0D3A1969AF7E00F49C36 /* VAXToDoListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXToDoListTableViewController.m; sourceTree = "<group>"; };
-		88BF0D3B1969AF7E00F49C36 /* VAXAddToDoItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXAddToDoItemViewController.h; sourceTree = "<group>"; };
-		88BF0D3C1969AF7E00F49C36 /* VAXAddToDoItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXAddToDoItemViewController.m; sourceTree = "<group>"; };
+		88BF0D371969AF7E00F49C36 /* VAXAttendee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXAttendee.h; sourceTree = "<group>"; };
+		88BF0D381969AF7E00F49C36 /* VAXAttendee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXAttendee.m; sourceTree = "<group>"; };
+		88BF0D391969AF7E00F49C36 /* VAXAttendeeListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXAttendeeListTableViewController.h; sourceTree = "<group>"; };
+		88BF0D3A1969AF7E00F49C36 /* VAXAttendeeListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXAttendeeListTableViewController.m; sourceTree = "<group>"; };
+		88BF0D3B1969AF7E00F49C36 /* VAXAttendeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXAttendeeViewController.h; sourceTree = "<group>"; };
+		88BF0D3C1969AF7E00F49C36 /* VAXAttendeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXAttendeeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,14 +119,12 @@
 			isa = PBXGroup;
 			children = (
 				88BF0D351969AF5C00F49C36 /* Main.storyboard */,
-				88BF0D371969AF7E00F49C36 /* VAXToDoItem.h */,
-				88BF0D381969AF7E00F49C36 /* VAXToDoItem.m */,
-				88BF0D391969AF7E00F49C36 /* VAXToDoListTableViewController.h */,
-				88BF0D3A1969AF7E00F49C36 /* VAXToDoListTableViewController.m */,
-				88BF0D3B1969AF7E00F49C36 /* VAXAddToDoItemViewController.h */,
-				88BF0D3C1969AF7E00F49C36 /* VAXAddToDoItemViewController.m */,
-				88BF0D151969AE3800F49C36 /* VAXAppDelegate.h */,
-				88BF0D161969AE3800F49C36 /* VAXAppDelegate.m */,
+				88BF0D371969AF7E00F49C36 /* VAXAttendee.h */,
+				88BF0D381969AF7E00F49C36 /* VAXAttendee.m */,
+				88BF0D391969AF7E00F49C36 /* VAXAttendeeListTableViewController.h */,
+				88BF0D3A1969AF7E00F49C36 /* VAXAttendeeListTableViewController.m */,
+				88BF0D3B1969AF7E00F49C36 /* VAXAttendeeViewController.h */,
+				88BF0D3C1969AF7E00F49C36 /* VAXAttendeeViewController.m */,
 				88BF0D181969AE3900F49C36 /* Images.xcassets */,
 				88BF0D0D1969AE3800F49C36 /* Supporting Files */,
 			);
@@ -136,6 +134,8 @@
 		88BF0D0D1969AE3800F49C36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				88BF0D151969AE3800F49C36 /* VAXAppDelegate.h */,
+				88BF0D161969AE3800F49C36 /* VAXAppDelegate.m */,
 				88BF0D0E1969AE3800F49C36 /* Hussle-Info.plist */,
 				88BF0D0F1969AE3800F49C36 /* InfoPlist.strings */,
 				88BF0D121969AE3800F49C36 /* main.m */,
@@ -262,11 +262,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88BF0D3F1969AF7E00F49C36 /* VAXAddToDoItemViewController.m in Sources */,
+				88BF0D3F1969AF7E00F49C36 /* VAXAttendeeViewController.m in Sources */,
 				88BF0D171969AE3800F49C36 /* VAXAppDelegate.m in Sources */,
 				88BF0D131969AE3800F49C36 /* main.m in Sources */,
-				88BF0D3E1969AF7E00F49C36 /* VAXToDoListTableViewController.m in Sources */,
-				88BF0D3D1969AF7E00F49C36 /* VAXToDoItem.m in Sources */,
+				88BF0D3E1969AF7E00F49C36 /* VAXAttendeeListTableViewController.m in Sources */,
+				88BF0D3D1969AF7E00F49C36 /* VAXAttendee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

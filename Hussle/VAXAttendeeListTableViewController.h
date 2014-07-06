@@ -1,6 +1,6 @@
 //
-//  VAXToDoListTableViewController.h
-//  ToDoList7.1
+//  VAXAttendeeListTableViewController
+//  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
 //  Copyright (c) 2014 Vaxis Technologies. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VAXToDoListTableViewController : UITableViewController
+@interface VAXAttendeeListTableViewController : UITableViewController
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 

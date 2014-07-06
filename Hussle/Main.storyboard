@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--To Do List Table View Controller - My To Do List-->
+        <!--Attendee List Table View Controller - Attendees-->
         <scene sceneID="yhG-EG-0pq">
             <objects>
-                <tableViewController id="1Pv-MM-0AO" customClass="VAXToDoListTableViewController" sceneMemberID="viewController">
+                <tableViewController id="1Pv-MM-0AO" customClass="VAXAttendeeListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wN7-Z0-32U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Buy Milk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jtY-6d-bYJ">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Adam - Placeholder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jtY-6d-bYJ">
                                             <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -38,7 +38,7 @@
                             <outlet property="delegate" destination="1Pv-MM-0AO" id="OiH-fw-uMq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My To Do List" id="vqb-xQ-sN4">
+                    <navigationItem key="navigationItem" title="Attendees" id="vqb-xQ-sN4">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f4G-1o-yGt">
                             <connections>
                                 <segue destination="hib-gh-Ilc" kind="modal" id="RHx-zB-ZaE"/>
@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="672" y="85"/>
         </scene>
-        <!--Add To Do Item View Controller - Add To Do Item-->
+        <!--Attendee View Controller - Attendee Status-->
         <scene sceneID="ned-nU-yex">
             <objects>
-                <viewController id="krg-9J-FDn" customClass="VAXAddToDoItemViewController" sceneMemberID="viewController">
+                <viewController id="krg-9J-FDn" customClass="VAXAttendeeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O7F-NF-i8r"/>
                         <viewControllerLayoutGuide type="bottom" id="G5N-Tn-Tav"/>
@@ -76,7 +76,7 @@
                             <constraint firstAttribute="trailing" secondItem="1Gb-Kg-Xpq" secondAttribute="trailing" constant="20" id="qjY-68-fXM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add To Do Item" id="7r7-Ve-BBN">
+                    <navigationItem key="navigationItem" title="Attendee Status" id="7r7-Ve-BBN">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b8V-EL-JKa">
                             <connections>
                                 <segue destination="S1g-Z9-wtr" kind="unwind" unwindAction="unwindToList:" id="SCL-J7-4bA"/>

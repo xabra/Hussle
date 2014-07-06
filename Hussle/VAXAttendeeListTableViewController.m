@@ -1,43 +1,43 @@
 //
-//  VAXToDoListTableViewController.m
-//  ToDoList7.1
+//  VAXAttendeeListTableViewController.m
+//  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
 //  Copyright (c) 2014 Vaxis Technologies. All rights reserved.
 //
 
-#import "VAXToDoListTableViewController.h"
-#import "VAXToDoItem.h"
-#import "VAXAddToDoItemViewController.h"
+#import "VAXAttendeeListTableViewController.h"
+#import "VAXAttendee.h"
+#import "VAXAttendeeViewController.h"
 
-@interface VAXToDoListTableViewController ()
+@interface VAXAttendeeListTableViewController ()
 
-@property NSMutableArray *toDoItems;
+@property NSMutableArray *attendees;
 
 @end
 
-@implementation VAXToDoListTableViewController
+@implementation VAXAttendeeListTableViewController
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
-    VAXAddToDoItemViewController *source = [segue sourceViewController];
-    VAXToDoItem *item = source.toDoItem;
-    if (item != nil) {
-        [self.toDoItems addObject:item];
+    VAXAttendeeViewController *source = [segue sourceViewController];
+    VAXAttendee *_attendee = source.attendee;
+    if (_attendee != nil) {
+        [self.attendees addObject:_attendee];
         [self.tableView reloadData];
     }
 }
 
 - (void)loadInitialData {  
-    VAXToDoItem *item1 = [[VAXToDoItem alloc] init]; 
-    item1.itemName = @"Buy milk";
-    [self.toDoItems addObject:item1];
-    VAXToDoItem *item2 = [[VAXToDoItem alloc] init];
-    item2.itemName = @"Buy eggs";
-    [self.toDoItems addObject:item2];
-    VAXToDoItem *item3 = [[VAXToDoItem alloc] init];
-    item3.itemName = @"Read a book";
-    [self.toDoItems addObject:item3];
+    VAXAttendee *attendee1 = [[VAXAttendee alloc] init];
+    attendee1.attendeeName = @"Jack Yao";
+    [self.attendees addObject:attendee1];
+    VAXAttendee *attendee2 = [[VAXAttendee alloc] init];
+    attendee2.attendeeName = @"Adam Brailove";
+    [self.attendees addObject:attendee2];
+    VAXAttendee *attendee3 = [[VAXAttendee alloc] init];
+    attendee3.attendeeName = @"Mick Jagger";
+    [self.attendees addObject:attendee3];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -52,7 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.toDoItems = [[NSMutableArray alloc] init];
+    self.attendees = [[NSMutableArray alloc] init];
     [self loadInitialData];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -79,7 +79,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.toDoItems count];
+    return [self.attendees count];
 }
 
 
@@ -88,10 +88,10 @@
     // Configure the cell...
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    VAXToDoItem *toDoItem = [self.toDoItems objectAtIndex:indexPath.row];
-    cell.textLabel.text = toDoItem.itemName;
+    VAXAttendee *attendee = [self.attendees objectAtIndex:indexPath.row];
+    cell.textLabel.text = attendee.attendeeName;
     
-    if (toDoItem.completed) {
+    if (attendee.completed) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -155,7 +155,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    VAXToDoItem *tappedItem = [self.toDoItems objectAtIndex:indexPath.row];
+    VAXAttendee *tappedItem = [self.attendees objectAtIndex:indexPath.row];
     tappedItem.completed = !tappedItem.completed;
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
