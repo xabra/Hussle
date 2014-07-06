@@ -19,6 +19,10 @@
 		88BF0D221969AE3900F49C36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BF0D0A1969AE3800F49C36 /* UIKit.framework */; };
 		88BF0D2A1969AE3900F49C36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88BF0D281969AE3900F49C36 /* InfoPlist.strings */; };
 		88BF0D2C1969AE3900F49C36 /* HussleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D2B1969AE3900F49C36 /* HussleTests.m */; };
+		88BF0D361969AF5C00F49C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BF0D351969AF5C00F49C36 /* Main.storyboard */; };
+		88BF0D3D1969AF7E00F49C36 /* VAXToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D381969AF7E00F49C36 /* VAXToDoItem.m */; };
+		88BF0D3E1969AF7E00F49C36 /* VAXToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3A1969AF7E00F49C36 /* VAXToDoListTableViewController.m */; };
+		88BF0D3F1969AF7E00F49C36 /* VAXAddToDoItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3C1969AF7E00F49C36 /* VAXAddToDoItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,13 @@
 		88BF0D271969AE3900F49C36 /* HussleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HussleTests-Info.plist"; sourceTree = "<group>"; };
 		88BF0D291969AE3900F49C36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		88BF0D2B1969AE3900F49C36 /* HussleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HussleTests.m; sourceTree = "<group>"; };
+		88BF0D351969AF5C00F49C36 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		88BF0D371969AF7E00F49C36 /* VAXToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXToDoItem.h; sourceTree = "<group>"; };
+		88BF0D381969AF7E00F49C36 /* VAXToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXToDoItem.m; sourceTree = "<group>"; };
+		88BF0D391969AF7E00F49C36 /* VAXToDoListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXToDoListTableViewController.h; sourceTree = "<group>"; };
+		88BF0D3A1969AF7E00F49C36 /* VAXToDoListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXToDoListTableViewController.m; sourceTree = "<group>"; };
+		88BF0D3B1969AF7E00F49C36 /* VAXAddToDoItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXAddToDoItemViewController.h; sourceTree = "<group>"; };
+		88BF0D3C1969AF7E00F49C36 /* VAXAddToDoItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXAddToDoItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +118,13 @@
 		88BF0D0C1969AE3800F49C36 /* Hussle */ = {
 			isa = PBXGroup;
 			children = (
+				88BF0D351969AF5C00F49C36 /* Main.storyboard */,
+				88BF0D371969AF7E00F49C36 /* VAXToDoItem.h */,
+				88BF0D381969AF7E00F49C36 /* VAXToDoItem.m */,
+				88BF0D391969AF7E00F49C36 /* VAXToDoListTableViewController.h */,
+				88BF0D3A1969AF7E00F49C36 /* VAXToDoListTableViewController.m */,
+				88BF0D3B1969AF7E00F49C36 /* VAXAddToDoItemViewController.h */,
+				88BF0D3C1969AF7E00F49C36 /* VAXAddToDoItemViewController.m */,
 				88BF0D151969AE3800F49C36 /* VAXAppDelegate.h */,
 				88BF0D161969AE3800F49C36 /* VAXAppDelegate.m */,
 				88BF0D181969AE3900F49C36 /* Images.xcassets */,
@@ -192,6 +210,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Vaxis Technologies";
 				TargetAttributes = {
+					88BF0D021969AE3800F49C36 = {
+						DevelopmentTeam = TM3N8JBBNP;
+					};
 					88BF0D1D1969AE3900F49C36 = {
 						TestTargetID = 88BF0D021969AE3800F49C36;
 					};
@@ -220,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88BF0D361969AF5C00F49C36 /* Main.storyboard in Resources */,
 				88BF0D111969AE3800F49C36 /* InfoPlist.strings in Resources */,
 				88BF0D191969AE3900F49C36 /* Images.xcassets in Resources */,
 			);
@@ -240,8 +262,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88BF0D3F1969AF7E00F49C36 /* VAXAddToDoItemViewController.m in Sources */,
 				88BF0D171969AE3800F49C36 /* VAXAppDelegate.m in Sources */,
 				88BF0D131969AE3800F49C36 /* main.m in Sources */,
+				88BF0D3E1969AF7E00F49C36 /* VAXToDoListTableViewController.m in Sources */,
+				88BF0D3D1969AF7E00F49C36 /* VAXToDoItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,8 +381,9 @@
 		88BF0D301969AE3900F49C36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hussle/Hussle-Prefix.pch";
 				INFOPLIST_FILE = "Hussle/Hussle-Info.plist";
@@ -369,8 +395,9 @@
 		88BF0D311969AE3900F49C36 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hussle/Hussle-Prefix.pch";
 				INFOPLIST_FILE = "Hussle/Hussle-Info.plist";
@@ -438,6 +465,7 @@
 				88BF0D311969AE3900F49C36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88BF0D321969AE3900F49C36 /* Build configuration list for PBXNativeTarget "HussleTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +474,7 @@
 				88BF0D341969AE3900F49C36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
