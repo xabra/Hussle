@@ -20,9 +20,9 @@
 		88BF0D2A1969AE3900F49C36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88BF0D281969AE3900F49C36 /* InfoPlist.strings */; };
 		88BF0D2C1969AE3900F49C36 /* HussleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D2B1969AE3900F49C36 /* HussleTests.m */; };
 		88BF0D361969AF5C00F49C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BF0D351969AF5C00F49C36 /* Main.storyboard */; };
-		88BF0D3D1969AF7E00F49C36 /* VAXAttendee.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D381969AF7E00F49C36 /* VAXAttendee.m */; };
-		88BF0D3E1969AF7E00F49C36 /* VAXAttendeeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3A1969AF7E00F49C36 /* VAXAttendeeListTableViewController.m */; };
-		88BF0D3F1969AF7E00F49C36 /* VAXAttendeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3C1969AF7E00F49C36 /* VAXAttendeeViewController.m */; };
+		88BF0D3D1969AF7E00F49C36 /* VAXInvitee.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D381969AF7E00F49C36 /* VAXInvitee.m */; };
+		88BF0D3E1969AF7E00F49C36 /* VAXInviteeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3A1969AF7E00F49C36 /* VAXInviteeListTableViewController.m */; };
+		88BF0D3F1969AF7E00F49C36 /* VAXInviteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3C1969AF7E00F49C36 /* VAXInviteeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +53,12 @@
 		88BF0D291969AE3900F49C36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		88BF0D2B1969AE3900F49C36 /* HussleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HussleTests.m; sourceTree = "<group>"; };
 		88BF0D351969AF5C00F49C36 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		88BF0D371969AF7E00F49C36 /* VAXAttendee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXAttendee.h; sourceTree = "<group>"; };
-		88BF0D381969AF7E00F49C36 /* VAXAttendee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXAttendee.m; sourceTree = "<group>"; };
-		88BF0D391969AF7E00F49C36 /* VAXAttendeeListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXAttendeeListTableViewController.h; sourceTree = "<group>"; };
-		88BF0D3A1969AF7E00F49C36 /* VAXAttendeeListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXAttendeeListTableViewController.m; sourceTree = "<group>"; };
-		88BF0D3B1969AF7E00F49C36 /* VAXAttendeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXAttendeeViewController.h; sourceTree = "<group>"; };
-		88BF0D3C1969AF7E00F49C36 /* VAXAttendeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXAttendeeViewController.m; sourceTree = "<group>"; };
+		88BF0D371969AF7E00F49C36 /* VAXInvitee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXInvitee.h; sourceTree = "<group>"; };
+		88BF0D381969AF7E00F49C36 /* VAXInvitee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXInvitee.m; sourceTree = "<group>"; };
+		88BF0D391969AF7E00F49C36 /* VAXInviteeListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXInviteeListTableViewController.h; sourceTree = "<group>"; };
+		88BF0D3A1969AF7E00F49C36 /* VAXInviteeListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXInviteeListTableViewController.m; sourceTree = "<group>"; };
+		88BF0D3B1969AF7E00F49C36 /* VAXInviteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXInviteeViewController.h; sourceTree = "<group>"; };
+		88BF0D3C1969AF7E00F49C36 /* VAXInviteeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXInviteeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88145E1C196A42A600FCC0B0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				88BF0D381969AF7E00F49C36 /* VAXInvitee.m */,
+				88BF0D371969AF7E00F49C36 /* VAXInvitee.h */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		88BF0CFA1969AE3700F49C36 = {
 			isa = PBXGroup;
 			children = (
@@ -118,13 +127,12 @@
 		88BF0D0C1969AE3800F49C36 /* Hussle */ = {
 			isa = PBXGroup;
 			children = (
+				88145E1C196A42A600FCC0B0 /* Models */,
 				88BF0D351969AF5C00F49C36 /* Main.storyboard */,
-				88BF0D371969AF7E00F49C36 /* VAXAttendee.h */,
-				88BF0D381969AF7E00F49C36 /* VAXAttendee.m */,
-				88BF0D391969AF7E00F49C36 /* VAXAttendeeListTableViewController.h */,
-				88BF0D3A1969AF7E00F49C36 /* VAXAttendeeListTableViewController.m */,
-				88BF0D3B1969AF7E00F49C36 /* VAXAttendeeViewController.h */,
-				88BF0D3C1969AF7E00F49C36 /* VAXAttendeeViewController.m */,
+				88BF0D391969AF7E00F49C36 /* VAXInviteeListTableViewController.h */,
+				88BF0D3A1969AF7E00F49C36 /* VAXInviteeListTableViewController.m */,
+				88BF0D3B1969AF7E00F49C36 /* VAXInviteeViewController.h */,
+				88BF0D3C1969AF7E00F49C36 /* VAXInviteeViewController.m */,
 				88BF0D181969AE3900F49C36 /* Images.xcassets */,
 				88BF0D0D1969AE3800F49C36 /* Supporting Files */,
 			);
@@ -262,11 +270,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88BF0D3F1969AF7E00F49C36 /* VAXAttendeeViewController.m in Sources */,
+				88BF0D3F1969AF7E00F49C36 /* VAXInviteeViewController.m in Sources */,
 				88BF0D171969AE3800F49C36 /* VAXAppDelegate.m in Sources */,
 				88BF0D131969AE3800F49C36 /* main.m in Sources */,
-				88BF0D3E1969AF7E00F49C36 /* VAXAttendeeListTableViewController.m in Sources */,
-				88BF0D3D1969AF7E00F49C36 /* VAXAttendee.m in Sources */,
+				88BF0D3E1969AF7E00F49C36 /* VAXInviteeListTableViewController.m in Sources */,
+				88BF0D3D1969AF7E00F49C36 /* VAXInvitee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

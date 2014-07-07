@@ -1,5 +1,5 @@
 //
-//  VAXAttendee.h
+//  VAXInvitee.h
 //  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VAXAttendee : NSObject
+@interface VAXInvitee : NSObject
 
 
-@property NSString *attendeeName;
+@property NSString *inviteeName;
 @property BOOL completed;
 @property (readonly) NSDate *creationDate;
 

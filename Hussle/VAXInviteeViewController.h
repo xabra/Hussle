@@ -1,5 +1,5 @@
 //
-//  VAXAttendeeViewController.h
+//  VAXInviteeViewController.h
 //  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VAXAttendee.h"
+#import "VAXInvitee.h"
 
-@interface VAXAttendeeViewController : UIViewController
+@interface VAXInviteeViewController : UIViewController
 
-@property VAXAttendee *attendee;
+@property VAXInvitee *invitee;
 
 @end

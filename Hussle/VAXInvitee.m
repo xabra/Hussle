@@ -1,13 +1,13 @@
 //
-//  VAXAttendee.m
+//  VAXInvitee.m
 //  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
 //  Copyright (c) 2014 Vaxis Technologies. All rights reserved.
 //
 
-#import "VAXAttendee.h"
+#import "VAXInvitee.h"
 
-@implementation VAXAttendee
+@implementation VAXInvitee
 
 @end

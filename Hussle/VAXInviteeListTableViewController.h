@@ -1,5 +1,5 @@
 //
-//  VAXAttendeeListTableViewController
+//  VAXInviteeListTableViewController
 //  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VAXAttendeeListTableViewController : UITableViewController
+@interface VAXInviteeListTableViewController : UITableViewController
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 

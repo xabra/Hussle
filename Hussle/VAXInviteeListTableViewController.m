@@ -1,43 +1,43 @@
 //
-//  VAXAttendeeListTableViewController.m
+//  VAXInviteeListTableViewController.m
 //  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
 //  Copyright (c) 2014 Vaxis Technologies. All rights reserved.
 //
 
-#import "VAXAttendeeListTableViewController.h"
-#import "VAXAttendee.h"
-#import "VAXAttendeeViewController.h"
+#import "VAXInviteeListTableViewController.h"
+#import "VAXInvitee.h"
+#import "VAXInviteeViewController.h"
 
-@interface VAXAttendeeListTableViewController ()
+@interface VAXInviteeListTableViewController ()
 
-@property NSMutableArray *attendees;
+@property NSMutableArray *invitees;
 
 @end
 
-@implementation VAXAttendeeListTableViewController
+@implementation VAXInviteeListTableViewController
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
-    VAXAttendeeViewController *source = [segue sourceViewController];
-    VAXAttendee *_attendee = source.attendee;
-    if (_attendee != nil) {
-        [self.attendees addObject:_attendee];
+    VAXInviteeViewController *source = [segue sourceViewController];
+    VAXInvitee *_invitee = source.invitee;
+    if (_invitee != nil) {
+        [self.invitees addObject:_invitee];
         [self.tableView reloadData];
     }
 }
 
 - (void)loadInitialData {  
-    VAXAttendee *attendee1 = [[VAXAttendee alloc] init];
-    attendee1.attendeeName = @"Jack Yao";
-    [self.attendees addObject:attendee1];
-    VAXAttendee *attendee2 = [[VAXAttendee alloc] init];
-    attendee2.attendeeName = @"Adam Brailove";
-    [self.attendees addObject:attendee2];
-    VAXAttendee *attendee3 = [[VAXAttendee alloc] init];
-    attendee3.attendeeName = @"Mick Jagger";
-    [self.attendees addObject:attendee3];
+    VAXInvitee *invitee1 = [[VAXInvitee alloc] init];
+    invitee1.inviteeName = @"Jack Yao";
+    [self.invitees addObject:invitee1];
+    VAXInvitee *invitee2 = [[VAXInvitee alloc] init];
+    invitee2.inviteeName = @"Adam Brailove";
+    [self.invitees addObject:invitee2];
+    VAXInvitee *invitee3 = [[VAXInvitee alloc] init];
+    invitee3.inviteeName = @"Mick Jagger";
+    [self.invitees addObject:invitee3];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -52,7 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.attendees = [[NSMutableArray alloc] init];
+    self.invitees = [[NSMutableArray alloc] init];
     [self loadInitialData];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -79,7 +79,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.attendees count];
+    return [self.invitees count];
 }
 
 
@@ -88,10 +88,10 @@
     // Configure the cell...
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    VAXAttendee *attendee = [self.attendees objectAtIndex:indexPath.row];
-    cell.textLabel.text = attendee.attendeeName;
+    VAXInvitee *invitee = [self.invitees objectAtIndex:indexPath.row];
+    cell.textLabel.text = invitee.inviteeName;
     
-    if (attendee.completed) {
+    if (invitee.completed) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -155,7 +155,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    VAXAttendee *tappedItem = [self.attendees objectAtIndex:indexPath.row];
+    VAXInvitee *tappedItem = [self.invitees objectAtIndex:indexPath.row];
     tappedItem.completed = !tappedItem.completed;
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }

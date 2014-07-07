@@ -1,14 +1,14 @@
 //
-//  VAXAttendeeViewController.m
+//  VAXInviteeViewController.m
 //  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
 //  Copyright (c) 2014 Vaxis Technologies. All rights reserved.
 //
 
-#import "VAXAttendeeViewController.h"
+#import "VAXInviteeViewController.h"
 
-@interface VAXAttendeeViewController ()
+@interface VAXInviteeViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation VAXAttendeeViewController
+@implementation VAXInviteeViewController
 
 
 // LAST ADD
@@ -24,9 +24,9 @@
 {
     if (sender != self.doneButton) return;
     if (self.textField.text.length > 0) {
-        self.attendee = [[VAXAttendee alloc] init];
-        self.attendee.attendeeName = self.textField.text;
-        self.attendee.completed = NO;
+        self.invitee = [[VAXInvitee alloc] init];
+        self.invitee.inviteeName = self.textField.text;
+        self.invitee.completed = NO;
     }
 }
 
