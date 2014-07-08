@@ -17,10 +17,10 @@ NSString *const MeetingInviteTentativelyAccepted;
 NSString *const MeetingInviteNoResponse;
 
 // Constants to define phase of travel for each invitee
-NSString *const TripStateNotStarted;
-NSString *const TripStateDeparted;
-NSString *const TripStateArrived;
-NSString *const TripStateUnknown;
+NSString *const TripPhaseNotStarted;
+NSString *const TripPhaseDeparted;
+NSString *const TripPhaseArrived;
+NSString *const TripPhaseUnknown;
 
 
 
@@ -34,7 +34,13 @@ NSString *const TripStateUnknown;
 
 // Meeting-specific properties of invitee
 @property NSString *meetingInviteResponse;
-@property NSString *travelPhase;
+@property NSString *tripPhase;
 @property BOOL isMeetingOrganizer;
+
+- (void)SetfirstName:(NSString *)firstName
+            lastName:(NSString *)lastName
+               email:(NSString *)emailAddress
+         mobilePhone:(NSString *)mobilePhoneNumber;
+
 
 @end

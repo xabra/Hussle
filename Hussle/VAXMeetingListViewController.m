@@ -6,21 +6,21 @@
 //  Copyright (c) 2014 Vaxis Technologies. All rights reserved.
 //
 
-#import "VAXInviteeListTableViewController.h"
+#import "VAXMeetingListViewController.h"
 #import "VAXInvitee.h"
-#import "VAXInviteeViewController.h"
+#import "VAXMeetingViewController.h"
 
-@interface VAXInviteeListTableViewController ()
+@interface VAXMeetingListViewController ()
 
 @property NSMutableArray *invitees;
 
 @end
 
-@implementation VAXInviteeListTableViewController
+@implementation VAXMeetingListViewController
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
-    VAXInviteeViewController *source = [segue sourceViewController];
+    VAXMeetingViewController *source = [segue sourceViewController];
     VAXInvitee *_invitee = source.invitee;
     if (_invitee != nil) {
         [self.invitees addObject:_invitee];
@@ -30,13 +30,24 @@
 
 - (void)loadInitialData {  
     VAXInvitee *invitee1 = [[VAXInvitee alloc] init];
-    invitee1.firstName = @"Jack Yao";
+    [invitee1 SetfirstName:@"Jack"
+                  lastName:@"Yao"
+                     email:@"jyao@yahoo.com"
+               mobilePhone:@"+1 (408) 555-1212" ];
     [self.invitees addObject:invitee1];
+    
     VAXInvitee *invitee2 = [[VAXInvitee alloc] init];
-    invitee2.firstName = @"Adam Brailove";
+    [invitee2 SetfirstName:@"Adam"
+                  lastName:@"Brailove"
+                     email:@"adam.brailove@gmail.com"
+               mobilePhone:@"+1 (408) 386-4771" ];
     [self.invitees addObject:invitee2];
+    
     VAXInvitee *invitee3 = [[VAXInvitee alloc] init];
-    invitee3.firstName = @"Mick Jagger";
+    [invitee3 SetfirstName:@"Mick"
+                  lastName:@"Jagger"
+                     email:@"mick_stones@yahoo.com"
+               mobilePhone:@"+35 665 5559 1242" ];
     [self.invitees addObject:invitee3];
 }
 

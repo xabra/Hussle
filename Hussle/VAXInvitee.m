@@ -10,4 +10,17 @@
 
 @implementation VAXInvitee
 
+- (void)SetfirstName:(NSString *)firstName
+            lastName:(NSString *)lastName
+               email:(NSString *)emailAddress
+         mobilePhone:(NSString *)mobilePhoneNumber {
+    self.firstName=firstName;
+    self.lastName = lastName;
+    self.emailAddress = emailAddress;
+    self.mobilePhoneNumber = mobilePhoneNumber;
+    self.meetingInviteResponse = MeetingInviteNoResponse;
+    self.tripPhase = TripPhaseNotStarted;
+    self.isMeetingOrganizer = NO;
+}
+
 @end

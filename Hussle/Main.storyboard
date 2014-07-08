@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Invitee List Table View Controller - Attendees-->
+        <!--Meeting List View Controller - My Calendar-->
         <scene sceneID="yhG-EG-0pq">
             <objects>
-                <tableViewController id="1Pv-MM-0AO" customClass="VAXInviteeListTableViewController" sceneMemberID="viewController">
+                <tableViewController id="1Pv-MM-0AO" customClass="VAXMeetingListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wN7-Z0-32U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,7 @@
                             <outlet property="delegate" destination="1Pv-MM-0AO" id="OiH-fw-uMq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Attendees" id="vqb-xQ-sN4">
+                    <navigationItem key="navigationItem" title="My Calendar" id="vqb-xQ-sN4">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f4G-1o-yGt">
                             <connections>
                                 <segue destination="hib-gh-Ilc" kind="modal" id="RHx-zB-ZaE"/>
@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="672" y="85"/>
         </scene>
-        <!--Invitee View Controller - Attendee Status-->
+        <!--Meeting View Controller - Meeting-->
         <scene sceneID="ned-nU-yex">
             <objects>
-                <viewController id="krg-9J-FDn" customClass="VAXInviteeViewController" sceneMemberID="viewController">
+                <viewController id="krg-9J-FDn" customClass="VAXMeetingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O7F-NF-i8r"/>
                         <viewControllerLayoutGuide type="bottom" id="G5N-Tn-Tav"/>
@@ -76,7 +76,7 @@
                             <constraint firstAttribute="trailing" secondItem="1Gb-Kg-Xpq" secondAttribute="trailing" constant="20" id="qjY-68-fXM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Attendee Status" id="7r7-Ve-BBN">
+                    <navigationItem key="navigationItem" title="Meeting" id="7r7-Ve-BBN">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b8V-EL-JKa">
                             <connections>
                                 <segue destination="S1g-Z9-wtr" kind="unwind" unwindAction="unwindToList:" id="SCL-J7-4bA"/>

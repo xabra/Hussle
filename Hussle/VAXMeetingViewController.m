@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Vaxis Technologies. All rights reserved.
 //
 
-#import "VAXInviteeViewController.h"
+#import "VAXMeetingViewController.h"
 
-@interface VAXInviteeViewController ()
+@interface VAXMeetingViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation VAXInviteeViewController
+@implementation VAXMeetingViewController
 
 
 // LAST ADD
