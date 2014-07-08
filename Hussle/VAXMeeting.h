@@ -14,6 +14,11 @@
 @property NSString *meetingDescription;
 @property NSDate *meetingDate;
 @property NSString *meetingLocation;    //Could use something better?
-@property NSMutableArray *inviteeList;
+@property (strong) NSMutableArray *inviteeList;
+
+- (void) InitMeetingWithTitle: (NSString *) meetingTitle
+                  Description: (NSString *) meetingDescription
+                         //Date: (NSString *) meetingDate
+                     Location: (NSString *) meetingLocation;
 
 @end

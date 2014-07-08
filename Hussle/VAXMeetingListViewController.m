@@ -1,5 +1,5 @@
 //
-//  VAXInviteeListTableViewController.m
+//  VAXMeetingListViewController.m
 //  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
@@ -7,28 +7,50 @@
 //
 
 #import "VAXMeetingListViewController.h"
-#import "VAXInvitee.h"
+//#import "VAXInvitee.h"      // Delete...
+#import "VAXMeeting.h"
 #import "VAXMeetingViewController.h"
 
 @interface VAXMeetingListViewController ()
 
-@property NSMutableArray *invitees;
+@property NSMutableArray *meetings;
 
 @end
+
+//----------------------
 
 @implementation VAXMeetingListViewController
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
     VAXMeetingViewController *source = [segue sourceViewController];
-    VAXInvitee *_invitee = source.invitee;
-    if (_invitee != nil) {
-        [self.invitees addObject:_invitee];
+    VAXMeeting *_meeting = source.meeting;
+    if (_meeting != nil) {
+        [self.meetings addObject:_meeting];
         [self.tableView reloadData];
     }
 }
 
-- (void)loadInitialData {  
+- (void)loadInitialData {
+    VAXMeeting *meeting1 = [[VAXMeeting alloc] init];
+    [meeting1 InitMeetingWithTitle:@"Customer B meeting"
+                       Description:@"Discussion of process issues with customer B"
+                          Location:@"Conference room 3, " ];
+    [self.meetings addObject:meeting1];
+    
+    VAXMeeting *meeting2 = [[VAXMeeting alloc] init];
+    [meeting2 InitMeetingWithTitle:@"ODI Design Review"
+                       Description:@"Review of key interfaces, mechanical, controls and software"
+                          Location:@"Owens Design, Inc" ];    [self.meetings addObject:meeting2];
+    
+    VAXMeeting *meeting3 = [[VAXMeeting alloc] init];
+    [meeting3 InitMeetingWithTitle:@"Mexican Happy Hour"
+                       Description:@"Come enjoy happy hours at Pedro's with all your friends from work"
+                          Location:@"Pedro's Mexican Restaurant" ];
+    [self.meetings addObject:meeting3];
+}
+/*
+ - (void)loadInitialData {
     VAXInvitee *invitee1 = [[VAXInvitee alloc] init];
     [invitee1 SetfirstName:@"Jack"
                   lastName:@"Yao"
@@ -36,7 +58,7 @@
                mobilePhone:@"+1 (408) 555-1212" ];
     [self.invitees addObject:invitee1];
     
-    VAXInvitee *invitee2 = [[VAXInvitee alloc] init];
+    VAXInvitee *meeting2 = [[VAXInvitee alloc] init];
     [invitee2 SetfirstName:@"Adam"
                   lastName:@"Brailove"
                      email:@"adam.brailove@gmail.com"
@@ -50,6 +72,7 @@
                mobilePhone:@"+35 665 5559 1242" ];
     [self.invitees addObject:invitee3];
 }
+ */
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -63,7 +86,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.invitees = [[NSMutableArray alloc] init];
+    self.meetings = [[NSMutableArray alloc] init];
     [self loadInitialData];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -90,7 +113,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.invitees count];
+    return [self.meetings count];
 }
 
 
@@ -99,14 +122,16 @@
     // Configure the cell...
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    VAXInvitee *invitee = [self.invitees objectAtIndex:indexPath.row];
-    cell.textLabel.text = invitee.firstName;
+    VAXMeeting *meeting = [self.meetings objectAtIndex:indexPath.row];
+    cell.textLabel.text = meeting.meetingTitle;
     
-    if (invitee.isMeetingOrganizer) {
+    /*
+    if (meeting.isMeetingOrganizer) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
+    */
     
     return cell;
 }
@@ -166,8 +191,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    VAXInvitee *tappedItem = [self.invitees objectAtIndex:indexPath.row];
-    tappedItem.isMeetingOrganizer = !tappedItem.isMeetingOrganizer;
-    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    //VAXMeeting *tappedItem = [self.meetings objectAtIndex:indexPath.row];
+    //tappedItem.isMeetingOrganizer = !tappedItem.isMeetingOrganizer;
+    //[tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 @end

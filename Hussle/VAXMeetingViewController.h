@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VAXInvitee.h"
+#import "VAXMeeting.h"
 
 @interface VAXMeetingViewController : UIViewController
 
-@property VAXInvitee *invitee;
+@property VAXMeeting *meeting;
 
 @end

@@ -24,9 +24,8 @@
 {
     if (sender != self.doneButton) return;
     if (self.textField.text.length > 0) {
-        self.invitee = [[VAXInvitee alloc] init];
-        self.invitee.firstName = self.textField.text;
-        self.invitee.isMeetingOrganizer = NO;
+        self.meeting = [[VAXMeeting alloc] init];
+        self.meeting.meetingTitle = self.textField.text;
     }
 }
 

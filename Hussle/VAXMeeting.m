@@ -10,4 +10,16 @@
 
 @implementation VAXMeeting
 
+
+- (void) InitMeetingWithTitle: (NSString *) meetingTitle
+                  Description: (NSString *) meetingDescription
+                         //Date: (NSDate *) meetingDate
+                     Location: (NSString *) meetingLocation {
+    self.meetingTitle = meetingTitle;
+    self.meetingDescription = meetingDescription;
+    //self.meetingDate = meetingDate;
+    self.meetingLocation = meetingLocation;
+    
+}
+
 @end
