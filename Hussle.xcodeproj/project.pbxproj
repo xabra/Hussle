@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880B980E196A5948004A14F4 /* VAXMeeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 880B980D196A5948004A14F4 /* VAXMeeting.m */; };
 		88BF0D071969AE3800F49C36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BF0D061969AE3800F49C36 /* Foundation.framework */; };
 		88BF0D091969AE3800F49C36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BF0D081969AE3800F49C36 /* CoreGraphics.framework */; };
 		88BF0D0B1969AE3800F49C36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BF0D0A1969AE3800F49C36 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		880B980C196A5948004A14F4 /* VAXMeeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXMeeting.h; sourceTree = "<group>"; };
+		880B980D196A5948004A14F4 /* VAXMeeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXMeeting.m; sourceTree = "<group>"; };
 		88BF0D031969AE3800F49C36 /* Hussle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hussle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BF0D061969AE3800F49C36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		88BF0D081969AE3800F49C36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,8 +91,10 @@
 		88145E1C196A42A600FCC0B0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				88BF0D381969AF7E00F49C36 /* VAXInvitee.m */,
 				88BF0D371969AF7E00F49C36 /* VAXInvitee.h */,
+				88BF0D381969AF7E00F49C36 /* VAXInvitee.m */,
+				880B980C196A5948004A14F4 /* VAXMeeting.h */,
+				880B980D196A5948004A14F4 /* VAXMeeting.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 			files = (
 				88BF0D3F1969AF7E00F49C36 /* VAXInviteeViewController.m in Sources */,
 				88BF0D171969AE3800F49C36 /* VAXAppDelegate.m in Sources */,
+				880B980E196A5948004A14F4 /* VAXMeeting.m in Sources */,
 				88BF0D131969AE3800F49C36 /* main.m in Sources */,
 				88BF0D3E1969AF7E00F49C36 /* VAXInviteeListTableViewController.m in Sources */,
 				88BF0D3D1969AF7E00F49C36 /* VAXInvitee.m in Sources */,

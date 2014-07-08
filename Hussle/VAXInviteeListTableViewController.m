@@ -30,13 +30,13 @@
 
 - (void)loadInitialData {  
     VAXInvitee *invitee1 = [[VAXInvitee alloc] init];
-    invitee1.inviteeName = @"Jack Yao";
+    invitee1.firstName = @"Jack Yao";
     [self.invitees addObject:invitee1];
     VAXInvitee *invitee2 = [[VAXInvitee alloc] init];
-    invitee2.inviteeName = @"Adam Brailove";
+    invitee2.firstName = @"Adam Brailove";
     [self.invitees addObject:invitee2];
     VAXInvitee *invitee3 = [[VAXInvitee alloc] init];
-    invitee3.inviteeName = @"Mick Jagger";
+    invitee3.firstName = @"Mick Jagger";
     [self.invitees addObject:invitee3];
 }
 
@@ -89,9 +89,9 @@
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     VAXInvitee *invitee = [self.invitees objectAtIndex:indexPath.row];
-    cell.textLabel.text = invitee.inviteeName;
+    cell.textLabel.text = invitee.firstName;
     
-    if (invitee.completed) {
+    if (invitee.isMeetingOrganizer) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -156,7 +156,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     VAXInvitee *tappedItem = [self.invitees objectAtIndex:indexPath.row];
-    tappedItem.completed = !tappedItem.completed;
+    tappedItem.isMeetingOrganizer = !tappedItem.isMeetingOrganizer;
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 @end
