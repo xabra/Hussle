@@ -18,7 +18,7 @@
 
 - (void) InitMeetingWithTitle: (NSString *) meetingTitle
                   Description: (NSString *) meetingDescription
-                         //Date: (NSString *) meetingDate
+                         Date: (NSDate *) meetingDate
                      Location: (NSString *) meetingLocation;
 
 @end

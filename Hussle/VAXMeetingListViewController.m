@@ -35,17 +35,20 @@
     VAXMeeting *meeting1 = [[VAXMeeting alloc] init];
     [meeting1 InitMeetingWithTitle:@"Customer B meeting"
                        Description:@"Discussion of process issues with customer B"
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:162000]
                           Location:@"Conference room 3, " ];
     [self.meetings addObject:meeting1];
     
     VAXMeeting *meeting2 = [[VAXMeeting alloc] init];
     [meeting2 InitMeetingWithTitle:@"ODI Design Review"
                        Description:@"Review of key interfaces, mechanical, controls and software"
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:172000]
                           Location:@"Owens Design, Inc" ];    [self.meetings addObject:meeting2];
     
     VAXMeeting *meeting3 = [[VAXMeeting alloc] init];
     [meeting3 InitMeetingWithTitle:@"Mexican Happy Hour"
                        Description:@"Come enjoy happy hours at Pedro's with all your friends from work"
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:182000]
                           Location:@"Pedro's Mexican Restaurant" ];
     [self.meetings addObject:meeting3];
 }
@@ -107,33 +110,92 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    // Kludged for now
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.meetings count];
+    // Kludged for now
+    int cnt;
+    if (section == 0){
+        cnt = 2;
+    } else {
+        cnt = [self.meetings count]- (int) 2;
+    }
+    return cnt;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Date formatter
+    // TODO - Put this in a less frequently accessed place so not constantly allocating it
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle: NSDateFormatterNoStyle];
+    [dateFormatter setTimeStyle: NSDateFormatterShortStyle];
+    
     // Configure the cell...
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    VAXMeeting *meeting = [self.meetings objectAtIndex:indexPath.row];
-    cell.textLabel.text = meeting.meetingTitle;
-    
-    /*
-    if (meeting.isMeetingOrganizer) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    */
+    NSInteger cumulativeIndex = [self tableView:tableView cumulativeIndexFromIndexPath:indexPath];
+    VAXMeeting *meeting = [self.meetings objectAtIndex:cumulativeIndex];        // Find the meeting object...
+    NSString *formattedTimeString = [dateFormatter stringFromDate:meeting.meetingDate];     // Format the meeting's NSDate into a time string
+    NSString *label = [NSString stringWithFormat:@"%@ - %@",formattedTimeString, meeting.meetingTitle ]; // Append the meeting title to the time string, with a space
+    cell.textLabel.text = label;        // Stuff the string into the cell's label
+    cell.detailTextLabel.text = meeting.meetingDescription;     //Stuff the meeting description into the cell's detail test
     
     return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView cumulativeIndexFromIndexPath:(NSIndexPath *)indexPath
+{
+    // Helper function to calculate the cumulative index into a 1-D array given an indexPath
+    // Need some error trapping here...
+    
+    NSInteger cumIndex = 0;
+    NSInteger nRowsInSection;
+    
+    for (NSInteger iSection=0; iSection<indexPath.section; iSection++) {// Loop over sections up to but not include the current section
+        nRowsInSection = [self tableView:tableView numberOfRowsInSection:iSection];
+        cumIndex += nRowsInSection;
+    }
+    cumIndex +=indexPath.row;   // Add the offset in the current section
+    return cumIndex;
+}
+
+// ----- Setup the section header (none)
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30.0;        // TODO - Not good to hard code number?
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionLabelString = [NSString stringWithFormat:@"Section %d", section];
+    return sectionLabelString;
+}
+
+/*
+ TODO - Implement a custom section header with smaller font and smaller height
+ - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+ {
+ UILabel *headerLabel = [[UILabel init] alloc];
+ headerLabel.text = @"hello";
+ return headerLabel;
+ }
+ */
+
+// ----- Setup the section footer (no footer)
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.001;    // Must be non-zero otherwise a default footer height is used
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return nil;
 }
 
 
