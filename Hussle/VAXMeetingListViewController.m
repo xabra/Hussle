@@ -7,14 +7,13 @@
 //
 
 #import "VAXMeetingListViewController.h"
-//#import "VAXInvitee.h"      // Delete...
 #import "VAXMeeting.h"
 #import "VAXMeetingViewController.h"
 
 @interface VAXMeetingListViewController ()
 
 @property NSMutableArray *meetings;
-
+@property NSMutableArray *dateSections;
 @end
 
 //----------------------
@@ -35,23 +34,75 @@
     VAXMeeting *meeting1 = [[VAXMeeting alloc] init];
     [meeting1 InitMeetingWithTitle:@"Customer B meeting"
                        Description:@"Discussion of process issues with customer B"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:162000]
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:692000]
                           Location:@"Conference room 3, " ];
     [self.meetings addObject:meeting1];
     
     VAXMeeting *meeting2 = [[VAXMeeting alloc] init];
     [meeting2 InitMeetingWithTitle:@"ODI Design Review"
                        Description:@"Review of key interfaces, mechanical, controls and software"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:172000]
-                          Location:@"Owens Design, Inc" ];    [self.meetings addObject:meeting2];
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:372000]
+                          Location:@"Owens Design, Inc" ];
+    [self.meetings addObject:meeting2];
     
     VAXMeeting *meeting3 = [[VAXMeeting alloc] init];
     [meeting3 InitMeetingWithTitle:@"Mexican Happy Hour"
                        Description:@"Come enjoy happy hours at Pedro's with all your friends from work"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:182000]
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:0]
                           Location:@"Pedro's Mexican Restaurant" ];
     [self.meetings addObject:meeting3];
+    
+    VAXMeeting *meeting4 = [[VAXMeeting alloc] init];
+    [meeting4 InitMeetingWithTitle:@"Fourth of July fireworks"
+                       Description:@"Ohhh....Ahhh"
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:582000]
+                          Location:@"Half Moon Bay" ];
+    [self.meetings addObject:meeting4];
+    
+    VAXMeeting *meeting5 = [[VAXMeeting alloc] init];
+    [meeting5 InitMeetingWithTitle:@"Strategic planning"
+                       Description:@"Set high level goals for 2525"
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:382000]
+                          Location:@"Tahiti Hilton" ];
+    [self.meetings addObject:meeting5];
+    
+    VAXMeeting *meeting6 = [[VAXMeeting alloc] init];
+    [meeting6 InitMeetingWithTitle:@"Dinner at the Slated Door"
+                       Description:@"Get together"
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:381000]
+                          Location:@"Slanted Door restaurant, San Francisco" ];
+    [self.meetings addObject:meeting6];
+    
+    NSSortDescriptor *dateDescriptor = [[NSSortDescriptor alloc] initWithKey:@"meetingDate" ascending:YES ];        // Create a sort descriptor
+    NSArray *sortDescriptors = @[dateDescriptor];   // Create a single element array of sort descriptors for the sort method
+    NSArray *sortedMeetings = [self.meetings sortedArrayUsingDescriptors:sortDescriptors];  // Sort array by meeting date
+    self.meetings = [NSMutableArray arrayWithArray:sortedMeetings];     // Copy sorted array back to meetings
+    [self groupMeetingsByDate];
+    
 }
+
+-(void) groupMeetingsByDate {
+    // Date formatter
+    // TODO - Cache this in a less frequently accessed place so not constantly allocating it
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle: NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle: NSDateFormatterNoStyle];
+    
+    
+    VAXMeeting *meeting = [self.meetings objectAtIndex:0];        // Find the first (Oth) meeting object...
+    if(meeting){    // If it is not nil...
+        [self.dateSections addObject:[NSNumber numberWithInt:0]];    //First (0th) section starts at first (Oth)meeting
+        NSString *savedFormattedDateString = [dateFormatter stringFromDate:meeting.meetingDate];     // Format the meeting's NSDate into a date-only string (no time component)
+        for(int i=1; i<self.meetings.count; i++) {    // loop over all meetings in meetings array...
+            meeting = [self.meetings objectAtIndex:i];      // Get the ith meeting
+            NSString *newFormattedDateString = [dateFormatter stringFromDate:meeting.meetingDate];  //Get the date for the ith meeting
+            if (![savedFormattedDateString isEqualToString:newFormattedDateString]) {  //If the new and saved strings are not equal...
+                [self.dateSections addObject:[NSNumber numberWithInt:i]];    //First (0th) section starts at first (Oth)meeting
+            }
+        }
+    }
+}
+
 /*
  - (void)loadInitialData {
     VAXInvitee *invitee1 = [[VAXInvitee alloc] init];
@@ -90,6 +141,7 @@
 {
     [super viewDidLoad];
     self.meetings = [[NSMutableArray alloc] init];
+    self.dateSections = [[NSMutableArray alloc] init];
     [self loadInitialData];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -111,19 +163,29 @@
 {
     // Return the number of sections.
     // Kludged for now
+    
+    NSInteger nSections =[self.dateSections count];
+    NSLog(@"--> Number of sections = %d", nSections);
     return 2;
+
+    return nSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+     NSInteger cnt;
+    
+    //cnt = 2; //(NSInteger) [[self.dateSections objectAtIndex:section+1] intValue] - [[self.dateSections objectAtIndex:section] intValue];
+    
     // Kludged for now
-    int cnt;
+    
     if (section == 0){
         cnt = 2;
     } else {
         cnt = [self.meetings count]- (int) 2;
     }
+    
     return cnt;
 }
 
@@ -133,7 +195,7 @@
     // Date formatter
     // TODO - Put this in a less frequently accessed place so not constantly allocating it
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle: NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle: NSDateFormatterShortStyle];
     [dateFormatter setTimeStyle: NSDateFormatterShortStyle];
     
     // Configure the cell...
