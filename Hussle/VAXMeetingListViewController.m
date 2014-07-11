@@ -55,7 +55,7 @@
     VAXMeeting *meeting4 = [[VAXMeeting alloc] init];
     [meeting4 InitMeetingWithTitle:@"Fourth of July fireworks"
                        Description:@"Ohhh....Ahhh"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:582000]
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:383000]
                           Location:@"Half Moon Bay" ];
     [self.meetings addObject:meeting4];
     
@@ -72,6 +72,27 @@
                               Date: [NSDate dateWithTimeIntervalSinceReferenceDate:381000]
                           Location:@"Slanted Door restaurant, San Francisco" ];
     [self.meetings addObject:meeting6];
+
+    VAXMeeting *meeting7 = [[VAXMeeting alloc] init];
+    [meeting7 InitMeetingWithTitle:@"Lunch with Geoff"
+                       Description:@"Lunch with Geoff"
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:695000]
+                          Location:@"Cygnet restaurant, Manchester, MA" ];
+    [self.meetings addObject:meeting7];
+
+    VAXMeeting *meeting8 = [[VAXMeeting alloc] init];
+    [meeting8 InitMeetingWithTitle:@"Another Happy Hour"
+                       Description:@"Beer !"
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:783500]
+                          Location:@"Faultline Restaurant" ];
+    [self.meetings addObject:meeting8];
+
+    VAXMeeting *meeting9 = [[VAXMeeting alloc] init];
+    [meeting9 InitMeetingWithTitle:@"Semicon/Intersolar"
+                       Description:@"Leave early.  Check the program before leaving"
+                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:928500]
+                          Location:@"Moscone Convention Center, San Francisco" ];
+    [self.meetings addObject:meeting9];
     
     NSSortDescriptor *dateDescriptor = [[NSSortDescriptor alloc] initWithKey:@"meetingDate" ascending:YES ];        // Create a sort descriptor
     NSArray *sortDescriptors = @[dateDescriptor];   // Create a single element array of sort descriptors for the sort method
@@ -98,6 +119,7 @@
             NSString *newFormattedDateString = [dateFormatter stringFromDate:meeting.meetingDate];  //Get the date for the ith meeting
             if (![savedFormattedDateString isEqualToString:newFormattedDateString]) {  //If the new and saved strings are not equal...
                 [self.dateSections addObject:[NSNumber numberWithInt:i]];    //First (0th) section starts at first (Oth)meeting
+                savedFormattedDateString = newFormattedDateString;
             }
         }
     }
@@ -164,9 +186,8 @@
     // Return the number of sections.
     // Kludged for now
     
-    NSInteger nSections =[self.dateSections count];
-    NSLog(@"--> Number of sections = %d", nSections);
-    return 2;
+    NSInteger nSections = [self.dateSections count];
+    //NSLog(@"--> Number of sections = %d", nSections);
 
     return nSections;
 }
@@ -176,14 +197,10 @@
     // Return the number of rows in the section.
      NSInteger cnt;
     
-    //cnt = 2; //(NSInteger) [[self.dateSections objectAtIndex:section+1] intValue] - [[self.dateSections objectAtIndex:section] intValue];
-    
-    // Kludged for now
-    
-    if (section == 0){
-        cnt = 2;
-    } else {
-        cnt = [self.meetings count]- (int) 2;
+    if(section == [self numberOfSectionsInTableView:tableView]-1){      // If it is the LAST section the number of elements in the last section is...
+        cnt = [self.meetings count] - [[self.dateSections objectAtIndex:section] intValue]; //  ... the number of meetings - index of meeting in last section
+    } else {    // Otherwise the number of elements in the section is...
+        cnt = (NSInteger) [[self.dateSections objectAtIndex:section+1] intValue] - [[self.dateSections objectAtIndex:section] intValue]; // the index of the next section - index of the section
     }
     
     return cnt;
@@ -195,8 +212,8 @@
     // Date formatter
     // TODO - Put this in a less frequently accessed place so not constantly allocating it
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle: NSDateFormatterShortStyle];
-    [dateFormatter setTimeStyle: NSDateFormatterShortStyle];
+    [dateFormatter setDateStyle: NSDateFormatterNoStyle];       // No date
+    [dateFormatter setTimeStyle: NSDateFormatterShortStyle];    // Time only
     
     // Configure the cell...
     static NSString *CellIdentifier = @"ListPrototypeCell";
@@ -235,7 +252,17 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSString *sectionLabelString = [NSString stringWithFormat:@"Section %d", section];
+    // Date formatter
+    // TODO - Put this in a less frequently accessed place so not constantly allocating it
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle: NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle: NSDateFormatterNoStyle];
+    
+    NSInteger iMeeting = [[self.dateSections objectAtIndex:section] intValue];        // Find the meeting object index for the first meeting in this section...
+    VAXMeeting *meeting = [self.meetings objectAtIndex:iMeeting];        // Find the meeting object...
+    NSString *formattedDateString = [dateFormatter stringFromDate:meeting.meetingDate];     // Format the meeting's NSDate into a time string
+    
+    NSString *sectionLabelString = formattedDateString; //[NSString stringWithFormat:@"Section %d", section];
     return sectionLabelString;
 }
 
