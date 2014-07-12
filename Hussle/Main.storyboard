@@ -38,7 +38,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="v8U-F3-vUd" kind="push" id="A3a-Sl-RXT"/>
+                                    <segue destination="v8U-F3-vUd" kind="push" identifier="CalendarToMeetingDetailSegue" id="A3a-Sl-RXT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -51,7 +51,7 @@
                     <navigationItem key="navigationItem" title="Calendar" id="vqb-xQ-sN4">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f4G-1o-yGt">
                             <connections>
-                                <segue destination="YbM-hv-5rF" kind="push" identifier="NewMeetingSegue" id="tnv-52-d1n"/>
+                                <segue destination="YbM-hv-5rF" kind="push" identifier="CalendarToEditMeetingSegue" id="tnv-52-d1n"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="771" y="85"/>
         </scene>
-        <!--Meeting View Controller - New Meeting-->
+        <!--Meeting View Controller - Edit Meeting-->
         <scene sceneID="5Vl-B2-GUH">
             <objects>
                 <tableViewController id="YbM-hv-5rF" customClass="VAXMeetingViewController" sceneMemberID="viewController">
@@ -174,7 +174,7 @@
                             <outlet property="delegate" destination="YbM-hv-5rF" id="MAk-uP-HSV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Meeting" id="q6Z-jm-Mqg">
+                    <navigationItem key="navigationItem" title="Edit Meeting" id="q6Z-jm-Mqg">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Cc4-sV-eNY">
                             <connections>
                                 <segue destination="3CP-rM-2kf" kind="unwind" unwindAction="unwindToList:" id="NPU-mw-xFc"/>
@@ -196,12 +196,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSk-DL-tLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3CP-rM-2kf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1663" y="85"/>
+            <point key="canvasLocation" x="2307" y="85"/>
         </scene>
-        <!--Table View Controller - Meeting Detail-->
+        <!--Meeting Detail View Controller - Meeting Detail-->
         <scene sceneID="bnK-Xi-Qjf">
             <objects>
-                <tableViewController storyboardIdentifier="Meeting Detail" title="Meeting Detail" id="v8U-F3-vUd" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Meeting Detail" title="Meeting Detail" id="v8U-F3-vUd" customClass="VAXMeetingDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="l4A-Bi-652">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -242,13 +242,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Meeting Detail" id="W18-bp-wGU">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="k6y-VK-1Db"/>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="1pE-Oz-HI0"/>
+                        <barButtonItem key="leftBarButtonItem" title="List" id="Nx6-YM-WZb">
+                            <connections>
+                                <segue destination="TYh-TT-Xm7" kind="unwind" unwindAction="unwindToList:" id="Xgw-tO-Odq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="1pE-Oz-HI0">
+                            <connections>
+                                <segue destination="YbM-hv-5rF" kind="push" identifier="MeetingDetailToEditMeetingSegue" id="GTx-of-QKT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FD6-4K-GEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TYh-TT-Xm7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1663" y="780"/>
+            <point key="canvasLocation" x="1741" y="448"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mxP-BY-UUi">
@@ -274,4 +283,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="GTx-of-QKT"/>
+    </inferredMetricsTieBreakers>
 </document>

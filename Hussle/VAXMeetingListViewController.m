@@ -22,13 +22,19 @@
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
-    VAXMeetingViewController *source = [segue sourceViewController];
-    VAXMeeting *_meeting = source.meeting;
-    if (_meeting != nil) {
-        [self.meetings addObject:_meeting];
-        [self.tableView reloadData];
+    if ([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
+        
+    } else if ([segue.identifier isEqualToString:@"CalendarToEditMeetingSegue"]){
+        VAXMeetingViewController *source = [segue sourceViewController];
+        VAXMeeting *_meeting = source.meeting;
+        if (_meeting != nil) {
+            [self.meetings addObject:_meeting];
+            [self.tableView reloadData];
+        }
     }
+
 }
+
 
 - (void)loadInitialData {
     VAXMeeting *meeting1 = [[VAXMeeting alloc] init];
@@ -255,7 +261,7 @@
     // Date formatter
     // TODO - Put this in a less frequently accessed place so not constantly allocating it
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle: NSDateFormatterShortStyle];
+    [dateFormatter setDateStyle: NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle: NSDateFormatterNoStyle];
     
     NSInteger iMeeting = [[self.dateSections objectAtIndex:section] intValue];        // Find the meeting object index for the first meeting in this section...
