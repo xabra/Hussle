@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Meeting List View Controller - My Calendar-->
+        <!--Meeting List View Controller - Calendar-->
         <scene sceneID="yhG-EG-0pq">
             <objects>
-                <tableViewController id="1Pv-MM-0AO" customClass="VAXMeetingListViewController" sceneMemberID="viewController">
+                <tableViewController title="Calendar" id="1Pv-MM-0AO" customClass="VAXMeetingListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="wN7-Z0-32U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +57,7 @@
             </objects>
             <point key="canvasLocation" x="672" y="85"/>
         </scene>
-        <!--Meeting View Controller - Meeting-->
+        <!--Meeting View Controller - New Meeting-->
         <scene sceneID="ned-nU-yex">
             <objects>
                 <viewController id="krg-9J-FDn" customClass="VAXMeetingViewController" sceneMemberID="viewController">
@@ -69,8 +69,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter To Do Item" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Gb-Kg-Xpq">
-                                <rect key="frame" x="20" y="119" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Meeting Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Gb-Kg-Xpq">
+                                <rect key="frame" x="39" y="95" width="243" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -78,12 +78,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1Gb-Kg-Xpq" firstAttribute="top" secondItem="O7F-NF-i8r" secondAttribute="bottom" constant="55" id="BOj-4I-qwg"/>
-                            <constraint firstItem="1Gb-Kg-Xpq" firstAttribute="leading" secondItem="A1g-lO-RxR" secondAttribute="leading" constant="20" id="f2g-3O-Uqm"/>
-                            <constraint firstAttribute="trailing" secondItem="1Gb-Kg-Xpq" secondAttribute="trailing" constant="20" id="qjY-68-fXM"/>
+                            <constraint firstItem="1Gb-Kg-Xpq" firstAttribute="leading" secondItem="A1g-lO-RxR" secondAttribute="leading" constant="39" id="2LW-c9-l10"/>
+                            <constraint firstAttribute="trailing" secondItem="1Gb-Kg-Xpq" secondAttribute="trailing" constant="38" id="MEy-ch-nrq"/>
+                            <constraint firstItem="1Gb-Kg-Xpq" firstAttribute="top" secondItem="O7F-NF-i8r" secondAttribute="bottom" constant="31" id="knV-yS-gID"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Meeting" id="7r7-Ve-BBN">
+                    <navigationItem key="navigationItem" title="New Meeting" id="7r7-Ve-BBN">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b8V-EL-JKa">
                             <connections>
                                 <segue destination="S1g-Z9-wtr" kind="unwind" unwindAction="unwindToList:" id="SCL-J7-4bA"/>
@@ -103,7 +103,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrP-WI-5Us" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="S1g-Z9-wtr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1640" y="85"/>
+            <point key="canvasLocation" x="1546" y="85"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MZf-VZ-5vx">
@@ -121,7 +121,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Se6-04-gHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="146" y="85"/>
+            <point key="canvasLocation" x="245" y="85"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vb4-6p-4Ds">
