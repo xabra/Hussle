@@ -232,6 +232,8 @@
                         <outlet property="descriptionTextField" destination="Tev-hi-mh6" id="deX-1S-WXe"/>
                         <outlet property="doneButton" destination="ikt-hp-VN2" id="X03-ww-Ogg"/>
                         <outlet property="locationTextField" destination="gjF-eg-QL9" id="imP-zI-J8B"/>
+                        <outlet property="meetingEndTextField" destination="oMz-37-ieU" id="7EP-yW-iG2"/>
+                        <outlet property="meetingStartTextField" destination="myr-GB-DK1" id="fYt-9m-2O0"/>
                         <outlet property="titleTextField" destination="uy3-zy-GGW" id="27k-0i-QGf"/>
                     </connections>
                 </tableViewController>

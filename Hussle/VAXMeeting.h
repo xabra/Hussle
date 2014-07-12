@@ -12,13 +12,15 @@
 
 @property NSString *meetingTitle;
 @property NSString *meetingDescription;
-@property NSDate *meetingDate;
+@property NSDate *meetingStart;
+@property NSDate *meetingEnd;
 @property NSString *meetingLocation;    //Could use something better?
 @property (strong) NSMutableArray *inviteeList;
 
 - (void) InitMeetingWithTitle: (NSString *) meetingTitle
                   Description: (NSString *) meetingDescription
-                         Date: (NSDate *) meetingDate
+                    StartDate: (NSDate *) meetingStart
+                      EndDate: (NSDate *) meetingEnd
                      Location: (NSString *) meetingLocation;
 
 @end

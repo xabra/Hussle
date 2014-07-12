@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *locationTextField;
+@property (weak, nonatomic) IBOutlet UITextField *meetingStartTextField;
+@property (weak, nonatomic) IBOutlet UITextField *meetingEndTextField;
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @end
@@ -28,12 +31,18 @@
 // LAST ADD
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
     if (sender != self.doneButton) return;
     if (self.titleTextField.text.length > 0) {
         self.meeting = [[VAXMeeting alloc] init];
         self.meeting.meetingTitle = self.titleTextField.text;
         self.meeting.meetingDescription = self.descriptionTextField.text;
         self.meeting.meetingLocation = self.locationTextField.text;
+        self.meeting.meetingStart = [NSDate dateWithTimeIntervalSinceReferenceDate: [[numberFormatter numberFromString:self.locationTextField.text] doubleValue]];
+        self.meeting.meetingEnd = [NSDate dateWithTimeIntervalSinceReferenceDate: [[numberFormatter numberFromString:self.locationTextField.text] doubleValue]];
+
     }
 }
 

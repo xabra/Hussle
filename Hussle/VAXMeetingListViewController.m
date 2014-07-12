@@ -39,67 +39,76 @@
     VAXMeeting *meeting1 = [[VAXMeeting alloc] init];
     [meeting1 InitMeetingWithTitle:@"Customer B meeting"
                        Description:@"Discussion of process issues with customer B"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:692000]
+                         StartDate: [NSDate dateWithTimeIntervalSinceReferenceDate:692000]
+                           EndDate: [NSDate dateWithTimeIntervalSinceReferenceDate:692100]
                           Location:@"Conference room 3, " ];
     [self.meetings addObject:meeting1];
     
     VAXMeeting *meeting2 = [[VAXMeeting alloc] init];
     [meeting2 InitMeetingWithTitle:@"ODI Design Review"
                        Description:@"Review of key interfaces, mechanical, controls and software"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:372000]
+                         StartDate: [NSDate dateWithTimeIntervalSinceReferenceDate:372000]
+                           EndDate: [NSDate dateWithTimeIntervalSinceReferenceDate:372100]
                           Location:@"Owens Design, Inc" ];
     [self.meetings addObject:meeting2];
     
     VAXMeeting *meeting3 = [[VAXMeeting alloc] init];
     [meeting3 InitMeetingWithTitle:@"Mexican Happy Hour"
                        Description:@"Come enjoy happy hours at Pedro's with all your friends from work"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:0]
+                         StartDate: [NSDate dateWithTimeIntervalSinceReferenceDate:0]
+                           EndDate: [NSDate dateWithTimeIntervalSinceReferenceDate:100]
                           Location:@"Pedro's Mexican Restaurant" ];
     [self.meetings addObject:meeting3];
     
     VAXMeeting *meeting4 = [[VAXMeeting alloc] init];
     [meeting4 InitMeetingWithTitle:@"Fourth of July fireworks"
                        Description:@"Ohhh....Ahhh"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:383000]
+                         StartDate: [NSDate dateWithTimeIntervalSinceReferenceDate:383000]
+                           EndDate: [NSDate dateWithTimeIntervalSinceReferenceDate:383100]
                           Location:@"Half Moon Bay" ];
     [self.meetings addObject:meeting4];
     
     VAXMeeting *meeting5 = [[VAXMeeting alloc] init];
     [meeting5 InitMeetingWithTitle:@"Strategic planning"
                        Description:@"Set high level goals for 2525"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:382000]
+                         StartDate: [NSDate dateWithTimeIntervalSinceReferenceDate:382000]
+                           EndDate: [NSDate dateWithTimeIntervalSinceReferenceDate:382100]
                           Location:@"Tahiti Hilton" ];
     [self.meetings addObject:meeting5];
     
     VAXMeeting *meeting6 = [[VAXMeeting alloc] init];
     [meeting6 InitMeetingWithTitle:@"Dinner at the Slated Door"
                        Description:@"Get together"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:381000]
+                         StartDate: [NSDate dateWithTimeIntervalSinceReferenceDate:381000]
+                           EndDate: [NSDate dateWithTimeIntervalSinceReferenceDate:381100]
                           Location:@"Slanted Door restaurant, San Francisco" ];
     [self.meetings addObject:meeting6];
 
     VAXMeeting *meeting7 = [[VAXMeeting alloc] init];
     [meeting7 InitMeetingWithTitle:@"Lunch with Geoff"
                        Description:@"Lunch with Geoff"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:695000]
+                         StartDate: [NSDate dateWithTimeIntervalSinceReferenceDate:695000]
+                           EndDate: [NSDate dateWithTimeIntervalSinceReferenceDate:695100]
                           Location:@"Cygnet restaurant, Manchester, MA" ];
     [self.meetings addObject:meeting7];
 
     VAXMeeting *meeting8 = [[VAXMeeting alloc] init];
     [meeting8 InitMeetingWithTitle:@"Another Happy Hour"
                        Description:@"Beer !"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:783500]
+                         StartDate: [NSDate dateWithTimeIntervalSinceReferenceDate:783500]
+                           EndDate: [NSDate dateWithTimeIntervalSinceReferenceDate:783600]
                           Location:@"Faultline Restaurant" ];
     [self.meetings addObject:meeting8];
 
     VAXMeeting *meeting9 = [[VAXMeeting alloc] init];
     [meeting9 InitMeetingWithTitle:@"Semicon/Intersolar"
                        Description:@"Leave early.  Check the program before leaving"
-                              Date: [NSDate dateWithTimeIntervalSinceReferenceDate:928500]
+                         StartDate: [NSDate dateWithTimeIntervalSinceReferenceDate:928500]
+                           EndDate: [NSDate dateWithTimeIntervalSinceReferenceDate:928600]
                           Location:@"Moscone Convention Center, San Francisco" ];
     [self.meetings addObject:meeting9];
     
-    NSSortDescriptor *dateDescriptor = [[NSSortDescriptor alloc] initWithKey:@"meetingDate" ascending:YES ];        // Create a sort descriptor
+    NSSortDescriptor *dateDescriptor = [[NSSortDescriptor alloc] initWithKey:@"meetingStart" ascending:YES ];        // Create a sort descriptor
     NSArray *sortDescriptors = @[dateDescriptor];   // Create a single element array of sort descriptors for the sort method
     NSArray *sortedMeetings = [self.meetings sortedArrayUsingDescriptors:sortDescriptors];  // Sort array by meeting date
     self.meetings = [NSMutableArray arrayWithArray:sortedMeetings];     // Copy sorted array back to meetings
@@ -118,10 +127,10 @@
     VAXMeeting *meeting = [self.meetings objectAtIndex:0];        // Find the first (Oth) meeting object...
     if(meeting){    // If it is not nil...
         [self.dateSections addObject:[NSNumber numberWithInt:0]];    //First (0th) section starts at first (Oth)meeting
-        NSString *savedFormattedDateString = [dateFormatter stringFromDate:meeting.meetingDate];     // Format the meeting's NSDate into a date-only string (no time component)
+        NSString *savedFormattedDateString = [dateFormatter stringFromDate:meeting.meetingStart];     // Format the meeting's NSDate into a date-only string (no time component)
         for(int i=1; i<self.meetings.count; i++) {    // loop over all meetings in meetings array...
             meeting = [self.meetings objectAtIndex:i];      // Get the ith meeting
-            NSString *newFormattedDateString = [dateFormatter stringFromDate:meeting.meetingDate];  //Get the date for the ith meeting
+            NSString *newFormattedDateString = [dateFormatter stringFromDate:meeting.meetingStart];  //Get the date for the ith meeting
             if (![savedFormattedDateString isEqualToString:newFormattedDateString]) {  //If the new and saved strings are not equal...
                 [self.dateSections addObject:[NSNumber numberWithInt:i]];    //First (0th) section starts at first (Oth)meeting
                 savedFormattedDateString = newFormattedDateString;
@@ -225,7 +234,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     NSInteger cumulativeIndex = [self tableView:tableView cumulativeIndexFromIndexPath:indexPath];
     VAXMeeting *meeting = [self.meetings objectAtIndex:cumulativeIndex];        // Find the meeting object...
-    NSString *formattedTimeString = [dateFormatter stringFromDate:meeting.meetingDate];     // Format the meeting's NSDate into a time string
+    NSString *formattedTimeString = [dateFormatter stringFromDate:meeting.meetingStart];     // Format the meeting's NSDate into a time string
     NSString *label = [NSString stringWithFormat:@"%@ - %@",formattedTimeString, meeting.meetingTitle ]; // Append the meeting title to the time string, with a space
     cell.textLabel.text = label;        // Stuff the string into the cell's label
     cell.detailTextLabel.text = meeting.meetingDescription;     //Stuff the meeting description into the cell's detail test
@@ -265,7 +274,7 @@
     
     NSInteger iMeeting = [[self.dateSections objectAtIndex:section] intValue];        // Find the meeting object index for the first meeting in this section...
     VAXMeeting *meeting = [self.meetings objectAtIndex:iMeeting];        // Find the meeting object...
-    NSString *formattedDateString = [dateFormatter stringFromDate:meeting.meetingDate];     // Format the meeting's NSDate into a time string
+    NSString *formattedDateString = [dateFormatter stringFromDate:meeting.meetingStart];     // Format the meeting's NSDate into a time string
     
     NSString *sectionLabelString = formattedDateString; //[NSString stringWithFormat:@"Section %d", section];
     return sectionLabelString;

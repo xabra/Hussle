@@ -13,11 +13,13 @@
 
 - (void) InitMeetingWithTitle: (NSString *) meetingTitle
                   Description: (NSString *) meetingDescription
-                         Date: (NSDate *) meetingDate
+                    StartDate: (NSDate *) meetingStart
+                      EndDate: (NSDate *) meetingEnd
                      Location: (NSString *) meetingLocation {
     self.meetingTitle = meetingTitle;
     self.meetingDescription = meetingDescription;
-    self.meetingDate = meetingDate;
+    self.meetingStart = meetingStart;
+    self.meetingEnd = meetingEnd;
     self.meetingLocation = meetingLocation;
     
 }
