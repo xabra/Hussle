@@ -22,17 +22,16 @@
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
-    if ([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
-        
-    } else if ([segue.identifier isEqualToString:@"CalendarToEditMeetingSegue"]){
+    //if ([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
+        //?????
+    //} else if ([segue.identifier isEqualToString:@"CalendarToEditMeetingSegue"]){
         VAXMeetingViewController *source = [segue sourceViewController];
         VAXMeeting *_meeting = source.meeting;
         if (_meeting != nil) {
             [self.meetings addObject:_meeting];
             [self.tableView reloadData];
         }
-    }
-
+    //}
 }
 
 

@@ -13,6 +13,16 @@
 @end
 
 @implementation VAXMeetingDetailViewController
+/*
+- (IBAction)unwindToDetailView:(UIStoryboardSegue *)segue
+{
+    if ([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
+        
+    } else if ([segue.identifier isEqualToString:@"CalendarToEditMeetingSegue"]){
+ 
+    }
+}
+*/
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

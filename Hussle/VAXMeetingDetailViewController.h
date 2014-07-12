@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VAXMeeting.h"
 
 @interface VAXMeetingDetailViewController : UITableViewController
+
+@property VAXMeeting *meeting;
+
+//- (IBAction)unwindToDetailView:(UIStoryboardSegue *)segue;
 
 @end
