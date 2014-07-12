@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "VAXMeeting.h"
 
-@interface VAXMeetingViewController : UIViewController
+@interface VAXMeetingViewController : UITableViewController
 
 @property VAXMeeting *meeting;
 

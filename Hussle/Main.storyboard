@@ -48,7 +48,7 @@
                     <navigationItem key="navigationItem" title="My Calendar" id="vqb-xQ-sN4">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f4G-1o-yGt">
                             <connections>
-                                <segue destination="hib-gh-Ilc" kind="modal" id="RHx-zB-ZaE"/>
+                                <segue destination="b1g-L2-hz0" kind="modal" id="HIM-nV-TIg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -56,54 +56,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qk-CL-kUe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="672" y="85"/>
-        </scene>
-        <!--Meeting View Controller - New Meeting-->
-        <scene sceneID="ned-nU-yex">
-            <objects>
-                <viewController id="krg-9J-FDn" customClass="VAXMeetingViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="O7F-NF-i8r"/>
-                        <viewControllerLayoutGuide type="bottom" id="G5N-Tn-Tav"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="A1g-lO-RxR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Meeting Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Gb-Kg-Xpq">
-                                <rect key="frame" x="39" y="95" width="243" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="1Gb-Kg-Xpq" firstAttribute="leading" secondItem="A1g-lO-RxR" secondAttribute="leading" constant="39" id="2LW-c9-l10"/>
-                            <constraint firstAttribute="trailing" secondItem="1Gb-Kg-Xpq" secondAttribute="trailing" constant="38" id="MEy-ch-nrq"/>
-                            <constraint firstItem="1Gb-Kg-Xpq" firstAttribute="top" secondItem="O7F-NF-i8r" secondAttribute="bottom" constant="31" id="knV-yS-gID"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="New Meeting" id="7r7-Ve-BBN">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b8V-EL-JKa">
-                            <connections>
-                                <segue destination="S1g-Z9-wtr" kind="unwind" unwindAction="unwindToList:" id="SCL-J7-4bA"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kZA-BP-jnL">
-                            <connections>
-                                <segue destination="S1g-Z9-wtr" kind="unwind" unwindAction="unwindToList:" id="oQO-xQ-Uf8"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="doneButton" destination="kZA-BP-jnL" id="zSK-Dc-QtO"/>
-                        <outlet property="textField" destination="1Gb-Kg-Xpq" id="0In-7f-9nK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vrP-WI-5Us" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="S1g-Z9-wtr" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1546" y="85"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MZf-VZ-5vx">
@@ -123,23 +75,142 @@
             </objects>
             <point key="canvasLocation" x="245" y="85"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Vb4-6p-4Ds">
+        <!--Meeting View Controller - New Meeting-->
+        <scene sceneID="5Vl-B2-GUH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hib-gh-Ilc" sceneMemberID="viewController">
+                <tableViewController id="YbM-hv-5rF" customClass="VAXMeetingViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="BP6-Qy-dRk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection headerTitle=" " id="WYd-ne-xl9">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ElG-J9-Zop">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ElG-J9-Zop" id="oyG-X1-apd">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uy3-zy-GGW">
+                                                    <rect key="frame" x="20" y="7" width="280" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="v48-7O-ZjK">
+                                        <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v48-7O-ZjK" id="UPt-Jr-L1S">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tev-hi-mh6">
+                                                    <rect key="frame" x="20" y="7" width="280" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EII-pe-A3L">
+                                        <rect key="frame" x="0.0" y="174" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EII-pe-A3L" id="e2S-yP-F0E">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjF-eg-QL9">
+                                                    <rect key="frame" x="20" y="7" width="280" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle=" " id="0Ql-Tw-4Jq">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cMf-b3-jnS">
+                                        <rect key="frame" x="0.0" y="240" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cMf-b3-jnS" id="fyL-8q-vQq">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fOZ-M8-Biv">
+                                        <rect key="frame" x="0.0" y="284" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fOZ-M8-Biv" id="E6X-Z4-qDo">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="VG8-Y1-gkh">
+                                        <rect key="frame" x="0.0" y="328" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VG8-Y1-gkh" id="SKB-Pc-2UJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="YbM-hv-5rF" id="HJg-bM-eEo"/>
+                            <outlet property="delegate" destination="YbM-hv-5rF" id="MAk-uP-HSV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New Meeting" id="q6Z-jm-Mqg">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Cc4-sV-eNY">
+                            <connections>
+                                <segue destination="3CP-rM-2kf" kind="unwind" unwindAction="unwindToList:" id="NPU-mw-xFc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="ikt-hp-VN2">
+                            <connections>
+                                <segue destination="3CP-rM-2kf" kind="unwind" unwindAction="unwindToList:" id="Qrj-24-7NG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="Tev-hi-mh6" id="deX-1S-WXe"/>
+                        <outlet property="doneButton" destination="ikt-hp-VN2" id="X03-ww-Ogg"/>
+                        <outlet property="locationTextField" destination="gjF-eg-QL9" id="imP-zI-J8B"/>
+                        <outlet property="titleTextField" destination="uy3-zy-GGW" id="27k-0i-QGf"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rSk-DL-tLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3CP-rM-2kf" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1644" y="85"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Aw0-f0-oNB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b1g-L2-hz0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rWv-eq-4Tb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cNF-E5-tnI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="krg-9J-FDn" kind="relationship" relationship="rootViewController" id="Lp7-fg-5IE"/>
+                        <segue destination="YbM-hv-5rF" kind="relationship" relationship="rootViewController" id="gVj-WM-ovy"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H4f-db-rJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Sp-5d-tfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114" y="85"/>
+            <point key="canvasLocation" x="1118" y="85"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -8,11 +8,17 @@
 
 #import "VAXMeetingViewController.h"
 
+// Define Cell Rows
+#define kTitleCell          1
+#define kDescriptionCell    2
+#define kLocationCell       3
+
 @interface VAXMeetingViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
+@property (weak, nonatomic) IBOutlet UITextField *locationTextField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
-
 
 @end
 
@@ -23,9 +29,11 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if (sender != self.doneButton) return;
-    if (self.textField.text.length > 0) {
+    if (self.titleTextField.text.length > 0) {
         self.meeting = [[VAXMeeting alloc] init];
-        self.meeting.meetingTitle = self.textField.text;
+        self.meeting.meetingTitle = self.titleTextField.text;
+        self.meeting.meetingDescription = self.descriptionTextField.text;
+        self.meeting.meetingLocation = self.locationTextField.text;
     }
 }
 
