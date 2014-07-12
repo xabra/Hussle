@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zg6-pI-lXc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QHc-Kk-1hg">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -37,6 +37,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="v8U-F3-vUd" kind="push" id="A3a-Sl-RXT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -45,22 +48,23 @@
                             <outlet property="delegate" destination="1Pv-MM-0AO" id="OiH-fw-uMq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Calendar" id="vqb-xQ-sN4">
+                    <navigationItem key="navigationItem" title="Calendar" id="vqb-xQ-sN4">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f4G-1o-yGt">
                             <connections>
-                                <segue destination="b1g-L2-hz0" kind="modal" id="HIM-nV-TIg"/>
+                                <segue destination="YbM-hv-5rF" kind="push" identifier="NewMeetingSegue" id="tnv-52-d1n"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qk-CL-kUe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="672" y="85"/>
+            <point key="canvasLocation" x="1204" y="85"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Item-->
         <scene sceneID="MZf-VZ-5vx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zg6-pI-lXc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="QxE-th-nel"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2pg-xs-7qb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -73,7 +77,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Se6-04-gHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="85"/>
+            <point key="canvasLocation" x="771" y="85"/>
         </scene>
         <!--Meeting View Controller - New Meeting-->
         <scene sceneID="5Vl-B2-GUH">
@@ -192,26 +196,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSk-DL-tLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3CP-rM-2kf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1644" y="85"/>
+            <point key="canvasLocation" x="1663" y="85"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Aw0-f0-oNB">
+        <!--Table View Controller - Meeting Detail-->
+        <scene sceneID="bnK-Xi-Qjf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b1g-L2-hz0" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="dv5-5t-IJ1"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cNF-E5-tnI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="YbM-hv-5rF" kind="relationship" relationship="rootViewController" id="gVj-WM-ovy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Sp-5d-tfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="Meeting Detail" title="Meeting Detail" id="v8U-F3-vUd" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="l4A-Bi-652">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="Rev-Dj-97w">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vt3-EW-8aO">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vt3-EW-8aO" id="5J1-ui-gaF">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="VMi-Ig-S2y">
+                                        <rect key="frame" x="0.0" y="108" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VMi-Ig-S2y" id="uhw-vu-uRb">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="OlX-7F-ePO">
+                                        <rect key="frame" x="0.0" y="152" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OlX-7F-ePO" id="hMh-es-gAj">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="v8U-F3-vUd" id="6Gi-MG-MdJ"/>
+                            <outlet property="delegate" destination="v8U-F3-vUd" id="XOi-lv-2Ir"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Meeting Detail" id="W18-bp-wGU">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="k6y-VK-1Db"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="1pE-Oz-HI0"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FD6-4K-GEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1118" y="85"/>
+            <point key="canvasLocation" x="1663" y="780"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="mxP-BY-UUi">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="QHc-Kk-1hg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="b5o-bP-GBb">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zg6-pI-lXc" kind="relationship" relationship="viewControllers" id="32a-4f-bLP"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RtY-ha-cMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="345" y="85"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
