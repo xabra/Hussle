@@ -1,19 +1,19 @@
 //
-//  VAXMeetingViewController.m
+//  VAXEditMeetingController.m
 //  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
 //  Copyright (c) 2014 Vaxis Technologies. All rights reserved.
 //
 
-#import "VAXMeetingViewController.h"
+#import "VAXEditMeetingController.h"
 
 // Define Cell Rows
 #define kTitleCell          1
 #define kDescriptionCell    2
 #define kLocationCell       3
 
-@interface VAXMeetingViewController ()
+@interface VAXEditMeetingController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation VAXMeetingViewController
+@implementation VAXEditMeetingController
 
 
 // LAST ADD

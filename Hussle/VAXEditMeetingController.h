@@ -1,5 +1,5 @@
 //
-//  VAXMeetingViewController.h
+//  VAXEditMeetingController.h
 //  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "VAXMeeting.h"
 
-@interface VAXMeetingViewController : UITableViewController
+@interface VAXEditMeetingController : UITableViewController 
 
 @property VAXMeeting *meeting;
 

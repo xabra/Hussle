@@ -24,7 +24,7 @@
 		88BF0D361969AF5C00F49C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BF0D351969AF5C00F49C36 /* Main.storyboard */; };
 		88BF0D3D1969AF7E00F49C36 /* VAXInvitee.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D381969AF7E00F49C36 /* VAXInvitee.m */; };
 		88BF0D3E1969AF7E00F49C36 /* VAXCalendarListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3A1969AF7E00F49C36 /* VAXCalendarListController.m */; };
-		88BF0D3F1969AF7E00F49C36 /* VAXMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3C1969AF7E00F49C36 /* VAXMeetingViewController.m */; };
+		88BF0D3F1969AF7E00F49C36 /* VAXEditMeetingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3C1969AF7E00F49C36 /* VAXEditMeetingController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +63,8 @@
 		88BF0D381969AF7E00F49C36 /* VAXInvitee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXInvitee.m; sourceTree = "<group>"; };
 		88BF0D391969AF7E00F49C36 /* VAXCalendarListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXCalendarListController.h; sourceTree = "<group>"; };
 		88BF0D3A1969AF7E00F49C36 /* VAXCalendarListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXCalendarListController.m; sourceTree = "<group>"; };
-		88BF0D3B1969AF7E00F49C36 /* VAXMeetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXMeetingViewController.h; sourceTree = "<group>"; };
-		88BF0D3C1969AF7E00F49C36 /* VAXMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXMeetingViewController.m; sourceTree = "<group>"; };
+		88BF0D3B1969AF7E00F49C36 /* VAXEditMeetingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXEditMeetingController.h; sourceTree = "<group>"; };
+		88BF0D3C1969AF7E00F49C36 /* VAXEditMeetingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXEditMeetingController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +141,8 @@
 				8862CAEC1971BEE30070F200 /* VAXMeetingDetailController.m */,
 				88BF0D391969AF7E00F49C36 /* VAXCalendarListController.h */,
 				88BF0D3A1969AF7E00F49C36 /* VAXCalendarListController.m */,
-				88BF0D3B1969AF7E00F49C36 /* VAXMeetingViewController.h */,
-				88BF0D3C1969AF7E00F49C36 /* VAXMeetingViewController.m */,
+				88BF0D3B1969AF7E00F49C36 /* VAXEditMeetingController.h */,
+				88BF0D3C1969AF7E00F49C36 /* VAXEditMeetingController.m */,
 				88BF0D181969AE3900F49C36 /* Images.xcassets */,
 				88BF0D0D1969AE3800F49C36 /* Supporting Files */,
 			);
@@ -280,7 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88BF0D3F1969AF7E00F49C36 /* VAXMeetingViewController.m in Sources */,
+				88BF0D3F1969AF7E00F49C36 /* VAXEditMeetingController.m in Sources */,
 				88BF0D171969AE3800F49C36 /* VAXAppDelegate.m in Sources */,
 				880B980E196A5948004A14F4 /* VAXMeeting.m in Sources */,
 				88BF0D131969AE3800F49C36 /* main.m in Sources */,

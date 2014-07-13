@@ -1,5 +1,5 @@
 //
-//  VAXMeetingDetailViewController.m
+//  VAXMeetingDetailController.m
 //  Hussle
 //
 //  Created by Adam Brailove on 7/12/14.

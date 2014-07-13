@@ -1,5 +1,5 @@
 //
-//  VAXMeetingListViewController.m
+//  VAXCalendarListController.m
 //  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
@@ -8,7 +8,7 @@
 
 #import "VAXCalendarListController.h"
 #import "VAXMeeting.h"
-#import "VAXMeetingViewController.h"
+#import "VAXEditMeetingController.h"
 #import "VAXMeetingDetailController.h"
 
 @interface VAXCalendarListController ()
@@ -26,7 +26,7 @@
     //if ([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
         //?????
     //} else if ([segue.identifier isEqualToString:@"CalendarToEditMeetingSegue"]){
-        VAXMeetingViewController *source = [segue sourceViewController];        // Get the view controller it is segueing FROM
+        VAXEditMeetingController *source = [segue sourceViewController];        // Get the view controller it is segueing FROM
         VAXMeeting *_meeting = source.meeting;      // Grab its meeting property
         if (_meeting != nil) {      // If it is returning a valid meeting
             [self.meetings addObject:_meeting]; //Add the meeting to the list of meetings in THIS view controler

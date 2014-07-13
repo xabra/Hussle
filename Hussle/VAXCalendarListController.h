@@ -1,5 +1,5 @@
 //
-//  VAXMeetingListViewController.h
+//  VAXCalendarListController.h
 //  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
