@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Vaxis Technologies. All rights reserved.
 //
 
-#import "VAXMeetingListViewController.h"
+#import "VAXCalendarListController.h"
 #import "VAXMeeting.h"
 #import "VAXMeetingViewController.h"
-#import "VAXMeetingDetailViewController.h"
+#import "VAXMeetingDetailController.h"
 
-@interface VAXMeetingListViewController ()
+@interface VAXCalendarListController ()
 
 @property NSMutableArray *meetings;
 @property NSMutableArray *dateSections;
@@ -19,7 +19,7 @@
 
 //----------------------
 
-@implementation VAXMeetingListViewController
+@implementation VAXCalendarListController
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
@@ -357,9 +357,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
-        if ([segue.destinationViewController isKindOfClass:[VAXMeetingDetailViewController class]]) {
-            VAXMeetingDetailViewController* detailViewController;
-            detailViewController = (VAXMeetingDetailViewController*)[segue destinationViewController]; // Get the destination view controller
+        if ([segue.destinationViewController isKindOfClass:[VAXMeetingDetailController class]]) {
+            VAXMeetingDetailController* detailViewController;
+            detailViewController = (VAXMeetingDetailController*)[segue destinationViewController]; // Get the destination view controller
             NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
             NSInteger index = [self tableView:self.tableView cumulativeIndexFromIndexPath:indexPath];
             detailViewController.meeting = [self.meetings objectAtIndex:index];        // Find the meeting object...

@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Meeting List View Controller - Calendar-->
+        <!--Calendar List Controller - Calendar-->
         <scene sceneID="yhG-EG-0pq">
             <objects>
-                <tableViewController title="Calendar" id="1Pv-MM-0AO" customClass="VAXMeetingListViewController" sceneMemberID="viewController">
+                <tableViewController title="Calendar" id="1Pv-MM-0AO" customClass="VAXCalendarListController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="wN7-Z0-32U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -242,10 +242,10 @@
             </objects>
             <point key="canvasLocation" x="2307" y="85"/>
         </scene>
-        <!--Meeting Detail View Controller - Meeting Detail-->
+        <!--Meeting Detail Controller - Meeting Detail-->
         <scene sceneID="bnK-Xi-Qjf">
             <objects>
-                <tableViewController storyboardIdentifier="Meeting Detail" title="Meeting Detail" id="v8U-F3-vUd" customClass="VAXMeetingDetailViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Meeting Detail" title="Meeting Detail" id="v8U-F3-vUd" customClass="VAXMeetingDetailController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="top" verticalHuggingPriority="1000" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="l4A-Bi-652">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

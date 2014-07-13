@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Vaxis Technologies. All rights reserved.
 //
 
-#import "VAXMeetingDetailViewController.h"
+#import "VAXMeetingDetailController.h"
 
-@interface VAXMeetingDetailViewController ()
+@interface VAXMeetingDetailController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -19,7 +19,7 @@
 @end
 
 // -----
-@implementation VAXMeetingDetailViewController
+@implementation VAXMeetingDetailController
 /*
 - (IBAction)unwindToDetailView:(UIStoryboardSegue *)segue
 {

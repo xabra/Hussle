@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VAXMeetingListViewController : UITableViewController
+@interface VAXCalendarListController : UITableViewController
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 
