@@ -1,5 +1,5 @@
 //
-//  VAXInviteeViewController.m
+//  VAXMeetingViewController.m
 //  Hussle
 //
 //  Created by Adam Brailove on 7/4/14.
@@ -40,8 +40,8 @@
         self.meeting.meetingTitle = self.titleTextField.text;
         self.meeting.meetingDescription = self.descriptionTextField.text;
         self.meeting.meetingLocation = self.locationTextField.text;
-        self.meeting.meetingStart = [NSDate dateWithTimeIntervalSinceReferenceDate: [[numberFormatter numberFromString:self.locationTextField.text] doubleValue]];
-        self.meeting.meetingEnd = [NSDate dateWithTimeIntervalSinceReferenceDate: [[numberFormatter numberFromString:self.locationTextField.text] doubleValue]];
+        self.meeting.meetingStart = [NSDate dateWithTimeIntervalSinceReferenceDate: [[numberFormatter numberFromString:self.meetingStartTextField.text] doubleValue]];
+        self.meeting.meetingEnd = [NSDate dateWithTimeIntervalSinceReferenceDate: [[numberFormatter numberFromString:self.meetingEndTextField.text] doubleValue]];
 
     }
 }

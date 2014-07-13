@@ -25,11 +25,12 @@
     //if ([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
         //?????
     //} else if ([segue.identifier isEqualToString:@"CalendarToEditMeetingSegue"]){
-        VAXMeetingViewController *source = [segue sourceViewController];
-        VAXMeeting *_meeting = source.meeting;
-        if (_meeting != nil) {
-            [self.meetings addObject:_meeting];
-            [self.tableView reloadData];
+        VAXMeetingViewController *source = [segue sourceViewController];        // Get the view controller it is segueing FROM
+        VAXMeeting *_meeting = source.meeting;      // Grab its meeting property
+        if (_meeting != nil) {      // If it is returning a valid meeting
+            [self.meetings addObject:_meeting]; //Add the meeting to the list of meetings in THIS view controler
+            [self updateCalendarList];      //Sort and update list sections
+            [self.tableView reloadData];        //Reload the data into the table
         }
     //}
 }
@@ -55,8 +56,8 @@
     VAXMeeting *meeting3 = [[VAXMeeting alloc] init];
     [meeting3 InitMeetingWithTitle:@"Mexican Happy Hour"
                        Description:@"Come enjoy happy hours at Pedro's with all your friends from work"
-                         StartDate: [NSDate dateWithTimeIntervalSinceReferenceDate:0]
-                           EndDate: [NSDate dateWithTimeIntervalSinceReferenceDate:100]
+                         StartDate: [NSDate dateWithTimeIntervalSinceReferenceDate:28801]   //
+                           EndDate: [NSDate dateWithTimeIntervalSinceReferenceDate:28900]
                           Location:@"Pedro's Mexican Restaurant" ];
     [self.meetings addObject:meeting3];
     
@@ -108,15 +109,22 @@
                           Location:@"Moscone Convention Center, San Francisco" ];
     [self.meetings addObject:meeting9];
     
+    [self updateCalendarList];
+}
+
+-(void) updateCalendarList {
+    [self sortCalendarList];
+    [self updateCalendarListSections];
+}
+
+-(void) sortCalendarList{
     NSSortDescriptor *dateDescriptor = [[NSSortDescriptor alloc] initWithKey:@"meetingStart" ascending:YES ];        // Create a sort descriptor
     NSArray *sortDescriptors = @[dateDescriptor];   // Create a single element array of sort descriptors for the sort method
     NSArray *sortedMeetings = [self.meetings sortedArrayUsingDescriptors:sortDescriptors];  // Sort array by meeting date
     self.meetings = [NSMutableArray arrayWithArray:sortedMeetings];     // Copy sorted array back to meetings
-    [self groupMeetingsByDate];
-    
 }
 
--(void) groupMeetingsByDate {
+-(void) updateCalendarListSections {
     // Date formatter
     // TODO - Cache this in a less frequently accessed place so not constantly allocating it
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -126,6 +134,7 @@
     
     VAXMeeting *meeting = [self.meetings objectAtIndex:0];        // Find the first (Oth) meeting object...
     if(meeting){    // If it is not nil...
+        [self.dateSections removeAllObjects];
         [self.dateSections addObject:[NSNumber numberWithInt:0]];    //First (0th) section starts at first (Oth)meeting
         NSString *savedFormattedDateString = [dateFormatter stringFromDate:meeting.meetingStart];     // Format the meeting's NSDate into a date-only string (no time component)
         for(int i=1; i<self.meetings.count; i++) {    // loop over all meetings in meetings array...
@@ -226,7 +235,7 @@
     // Date formatter
     // TODO - Put this in a less frequently accessed place so not constantly allocating it
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle: NSDateFormatterNoStyle];       // No date
+    [dateFormatter setDateStyle: NSDateFormatterShortStyle];       // No date
     [dateFormatter setTimeStyle: NSDateFormatterShortStyle];    // Time only
     
     // Configure the cell...
