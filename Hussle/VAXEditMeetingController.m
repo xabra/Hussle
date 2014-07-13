@@ -13,6 +13,8 @@
 #define kDescriptionCell    2
 #define kLocationCell       3
 
+// ------------------------------------
+
 @interface VAXEditMeetingController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
@@ -25,39 +27,69 @@
 
 @end
 
+// ------------------------------------
+
 @implementation VAXEditMeetingController
 
 
-// LAST ADD
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     
-    if (sender != self.doneButton) return;
+    if (sender != self.doneButton) return;  
     if (self.titleTextField.text.length > 0) {
-        self.meeting = [[VAXMeeting alloc] init];
         self.meeting.meetingTitle = self.titleTextField.text;
         self.meeting.meetingDescription = self.descriptionTextField.text;
         self.meeting.meetingLocation = self.locationTextField.text;
         self.meeting.meetingStart = [NSDate dateWithTimeIntervalSinceReferenceDate: [[numberFormatter numberFromString:self.meetingStartTextField.text] doubleValue]];
         self.meeting.meetingEnd = [NSDate dateWithTimeIntervalSinceReferenceDate: [[numberFormatter numberFromString:self.meetingEndTextField.text] doubleValue]];
-
     }
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(void) viewWillAppear:(BOOL)animated
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    [super viewWillAppear:animated];    // Call super
+    
+    // Make this an outlet instead??
+    if(self.isNewMeeting == YES){
+        [self.navigationItem setTitle:@"New Meeting"];// Set the title to be New Meeting"
+    } else {
+        [self.navigationItem setTitle:@"Edit Meeting"];// Set the title to be New Meeting"
     }
-    return self;
+    
+    [self updateUI];
+}
+
+- (void) updateUI
+{
+    // Date formatter
+    // TODO - Put this in a less frequently accessed place so not constantly allocating it
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle: NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle: NSDateFormatterShortStyle];
+    
+    // Stuff the current values from the meeting object into the text fields as starting values
+    self.titleTextField.text = self.meeting.meetingTitle;
+    self.descriptionTextField.text = self.meeting.meetingDescription;
+    self.locationTextField.text = self.meeting.meetingLocation;
+
+    NSString *startDateString = [dateFormatter stringFromDate:self.meeting.meetingStart]; // Format the meeting's NSDate into a time string
+    self.meetingStartTextField.text = startDateString;
+    
+    NSString *endDateString = [dateFormatter stringFromDate:self.meeting.meetingEnd]; // Format the meeting's NSDate into a time string
+    self.meetingEndTextField.text = endDateString;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+
+    if(self.isNewMeeting == YES){
+        self.meeting = [[VAXMeeting alloc] init];       // Alloc a new meeting object for the meeting property
+    }
+
     // Do any additional setup after loading the view.
 }
 
@@ -67,15 +99,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

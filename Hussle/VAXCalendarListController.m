@@ -300,6 +300,7 @@
  }
  */
 
+
 // ----- Setup the section footer (no footer)
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -353,19 +354,28 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+// Preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
-        if ([segue.destinationViewController isKindOfClass:[VAXMeetingDetailController class]]) {
-            VAXMeetingDetailController* detailViewController;
-            detailViewController = (VAXMeetingDetailController*)[segue destinationViewController]; // Get the destination view controller
-            NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-            NSInteger index = [self tableView:self.tableView cumulativeIndexFromIndexPath:indexPath];
-            detailViewController.meeting = [self.meetings objectAtIndex:index];        // Find the meeting object...
+    if([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {        // If this is the segue and...
+        if ([segue.destinationViewController isKindOfClass:[VAXMeetingDetailController class]]) {   // If the destination view controller is of the correct type...
+            VAXMeetingDetailController* detailViewController = (VAXMeetingDetailController*)[segue destinationViewController]; // Get the destination view controller
+            
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];  // Get the indexPath of the cell that was touched
+            NSInteger index = [self tableView:self.tableView cumulativeIndexFromIndexPath:indexPath];   // Calculate the cumulative index of that row
+            detailViewController.meeting = [self.meetings objectAtIndex:index];        // Find the meeting object at that index...
+            
+        }
+    } else if([segue.identifier isEqualToString:@"CalendarToEditMeetingSegue"]) {        // If this is the segue and...
+        if ([segue.destinationViewController isKindOfClass:[VAXEditMeetingController class]]) {   // If the destination view controller is of the correct type...
+            VAXEditMeetingController* editMeetingController = (VAXEditMeetingController*)[segue destinationViewController]; // Get the destination view controller
+            editMeetingController.isNewMeeting = YES;
+            //VAXMeeting* meeting = [[VAXMeeting alloc] init];    // Allocate a new meeting object
+            //editMeetingController.meeting = nil; //meeting;          // Set the destination meeting to be nil
             
         }
     }
+    
 }
 
 

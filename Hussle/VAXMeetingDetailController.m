@@ -7,6 +7,7 @@
 //
 
 #import "VAXMeetingDetailController.h"
+#import "VAXEditMeetingController.h"
 
 @interface VAXMeetingDetailController ()
 
@@ -83,6 +84,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the destination view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"MeetingDetailToEditMeetingSegue"]) {     //If it is this particular segue and...
+        if ([segue.destinationViewController isKindOfClass:[VAXEditMeetingController class]]) { // If the segue destination view controller is of the right type...
+            VAXEditMeetingController* editMeetingController = (VAXEditMeetingController*)[segue destinationViewController]; // Get the destination view controller
+            editMeetingController.meeting = self.meeting;   // SHALLOW COPY this meeting object (a reference to the object in the list) to the local meeting in destination
+        }
+    }
+}
+
+
 /*
 #pragma mark - Table view data source
 
@@ -150,15 +166,8 @@
 }
 */
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+
 
 @end
