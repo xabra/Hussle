@@ -9,6 +9,7 @@
 #import "VAXMeetingListViewController.h"
 #import "VAXMeeting.h"
 #import "VAXMeetingViewController.h"
+#import "VAXMeetingDetailViewController.h"
 
 @interface VAXMeetingListViewController ()
 
@@ -349,16 +350,24 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
+        if ([segue.destinationViewController isKindOfClass:[VAXMeetingDetailViewController class]]) {
+            VAXMeetingDetailViewController* detailViewController;
+            detailViewController = (VAXMeetingDetailViewController*)[segue destinationViewController]; // Get the destination view controller
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+            NSInteger index = [self tableView:self.tableView cumulativeIndexFromIndexPath:indexPath];
+            detailViewController.meeting = [self.meetings objectAtIndex:index];        // Find the meeting object...
+            
+        }
+    }
 }
-*/
+
 
 #pragma mark - Table view delegate
 

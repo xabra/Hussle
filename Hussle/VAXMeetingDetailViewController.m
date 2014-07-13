@@ -10,8 +10,15 @@
 
 @interface VAXMeetingDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *meetingStartLabel;
+@property (weak, nonatomic) IBOutlet UILabel *meetingEndLabel;
+
 @end
 
+// -----
 @implementation VAXMeetingDetailViewController
 /*
 - (IBAction)unwindToDetailView:(UIStoryboardSegue *)segue
@@ -31,6 +38,32 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self updateUI];
+}
+
+-(void) updateUI
+{
+    // Date formatter
+    // TODO - Put this in a less frequently accessed place so not constantly allocating it
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle: NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle: NSDateFormatterShortStyle];
+    
+    [self.titleLabel setText: self.meeting.meetingTitle];
+    [self.descriptionLabel setText: self.meeting.meetingDescription];
+    [self.locationLabel setText: self.meeting.meetingLocation];
+    
+    NSString *startDateString = [dateFormatter stringFromDate:self.meeting.meetingStart]; // Format the meeting's NSDate into a time string
+    [self.meetingStartLabel setText: startDateString];
+    
+    NSString *endDateString = [dateFormatter stringFromDate:self.meeting.meetingEnd]; // Format the meeting's NSDate into a time string
+    [self.meetingEndLabel setText: endDateString];
+    
 }
 
 - (void)viewDidLoad
