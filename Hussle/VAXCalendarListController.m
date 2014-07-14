@@ -21,7 +21,7 @@
 
 @implementation VAXCalendarListController
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue
+- (IBAction)unwindToView:(UIStoryboardSegue *)segue
 {
     //if ([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
         //?????
@@ -363,15 +363,15 @@
             
             NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];  // Get the indexPath of the cell that was touched
             NSInteger index = [self tableView:self.tableView cumulativeIndexFromIndexPath:indexPath];   // Calculate the cumulative index of that row
-            detailViewController.meeting = [self.meetings objectAtIndex:index];        // Find the meeting object at that index...
+            detailViewController.meeting = [self.meetings objectAtIndex:index];        // Find the meeting object at that index and set the destination controller to REFERENCE it.
             
         }
     } else if([segue.identifier isEqualToString:@"CalendarToEditMeetingSegue"]) {        // If this is the segue and...
         if ([segue.destinationViewController isKindOfClass:[VAXEditMeetingController class]]) {   // If the destination view controller is of the correct type...
             VAXEditMeetingController* editMeetingController = (VAXEditMeetingController*)[segue destinationViewController]; // Get the destination view controller
-            editMeetingController.isNewMeeting = YES;
+            //editMeetingController.isNewMeeting = YES;
             //VAXMeeting* meeting = [[VAXMeeting alloc] init];    // Allocate a new meeting object
-            //editMeetingController.meeting = nil; //meeting;          // Set the destination meeting to be nil
+            editMeetingController.meeting = nil; //meeting;          // Set the destination meeting to be nil
             
         }
     }

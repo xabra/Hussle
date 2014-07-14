@@ -10,6 +10,6 @@
 
 @interface VAXCalendarListController : UITableViewController
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue;
+- (IBAction)unwindToView:(UIStoryboardSegue *)segue;
 
 @end

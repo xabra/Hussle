@@ -15,22 +15,22 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *meetingStartLabel;
-@property (weak, nonatomic) IBOutlet UILabel *meetingEndLabel;
+@property (weak, nonatomic) IBOutlet UILabel *meetingEndLabel; 
 
 @end
 
 // -----
 @implementation VAXMeetingDetailController
-/*
-- (IBAction)unwindToDetailView:(UIStoryboardSegue *)segue
+
+- (IBAction)unwindToView:(UIStoryboardSegue *)segue
 {
-    if ([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
+    //if ([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
         
-    } else if ([segue.identifier isEqualToString:@"CalendarToEditMeetingSegue"]){
+    //} else if ([segue.identifier isEqualToString:@"CalendarToEditMeetingSegue"]){
  
-    }
+    //}
 }
-*/
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

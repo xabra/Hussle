@@ -13,6 +13,6 @@
 
 @property VAXMeeting *meeting;
 
-//- (IBAction)unwindToDetailView:(UIStoryboardSegue *)segue;
+- (IBAction)unwindToView:(UIStoryboardSegue *)segue;
 
 @end

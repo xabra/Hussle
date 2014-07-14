@@ -12,6 +12,5 @@
 @interface VAXEditMeetingController : UITableViewController 
 
 @property VAXMeeting *meeting;
-@property BOOL isNewMeeting;
 
 @end

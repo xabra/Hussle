@@ -217,9 +217,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Edit Meeting" id="q6Z-jm-Mqg">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Cc4-sV-eNY">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2Lm-9G-QRM">
                             <connections>
-                                <segue destination="3CP-rM-2kf" kind="unwind" unwindAction="unwindToList:" id="NPU-mw-xFc"/>
+                                <segue destination="3CP-rM-2kf" kind="unwind" unwindAction="unwindToView:" id="bjc-L8-Rfl"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="ikt-hp-VN2">

@@ -34,10 +34,17 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if (sender != self.doneButton) return;  // If hit CANCEL button then return, leaving meeting = nil
+    // Otherwise, hit SAVE button...
+    
+    if(self.meeting == nil){
+        self.meeting = [[VAXMeeting alloc] init];       // Alloc a new meeting object for the meeting property
+    }
+    
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     
-    if (sender != self.doneButton) return;  
+ 
     if (self.titleTextField.text.length > 0) {
         self.meeting.meetingTitle = self.titleTextField.text;
         self.meeting.meetingDescription = self.descriptionTextField.text;
@@ -52,7 +59,7 @@
     [super viewWillAppear:animated];    // Call super
     
     // Make this an outlet instead??
-    if(self.isNewMeeting == YES){
+    if(self.meeting == nil){
         [self.navigationItem setTitle:@"New Meeting"];// Set the title to be New Meeting"
     } else {
         [self.navigationItem setTitle:@"Edit Meeting"];// Set the title to be New Meeting"
@@ -84,11 +91,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-
-    if(self.isNewMeeting == YES){
-        self.meeting = [[VAXMeeting alloc] init];       // Alloc a new meeting object for the meeting property
-    }
 
     // Do any additional setup after loading the view.
 }
