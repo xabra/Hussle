@@ -23,9 +23,7 @@
 
 - (IBAction)unwindToView:(UIStoryboardSegue *)segue
 {
-    //if ([segue.identifier isEqualToString:@"CalendarToMeetingDetailSegue"]) {
-        //?????
-    //} else if ([segue.identifier isEqualToString:@"CalendarToEditMeetingSegue"]){
+    if  ([segue.sourceViewController isKindOfClass:[VAXEditMeetingController class]]) { //If we came from the edit meeting controller...69
         VAXEditMeetingController *source = [segue sourceViewController];        // Get the view controller it is segueing FROM
         VAXMeeting *_meeting = source.meeting;      // Grab its meeting property
         if (_meeting != nil) {      // If it is returning a valid meeting
@@ -33,7 +31,12 @@
             [self updateCalendarList];      //Sort and update list sections
             [self.tableView reloadData];        //Reload the data into the table
         }
-    //}
+    }
+
+    if  ([segue.sourceViewController isKindOfClass:[VAXMeetingDetailController class]]) {
+        [self updateCalendarList];      //Sort and update list sections
+        [self.tableView reloadData];        //Reload the data into the table
+    }
 }
 
 

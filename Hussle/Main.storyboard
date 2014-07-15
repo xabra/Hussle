@@ -219,12 +219,12 @@
                     <navigationItem key="navigationItem" title="Edit Meeting" id="q6Z-jm-Mqg">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="2Lm-9G-QRM">
                             <connections>
-                                <segue destination="3CP-rM-2kf" kind="unwind" unwindAction="unwindToView:" id="bjc-L8-Rfl"/>
+                                <segue destination="3CP-rM-2kf" kind="unwind" unwindAction="unwindToView:" id="B4Y-aj-RzZ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="ikt-hp-VN2">
                             <connections>
-                                <segue destination="3CP-rM-2kf" kind="unwind" unwindAction="unwindToList:" id="Qrj-24-7NG"/>
+                                <segue destination="3CP-rM-2kf" kind="unwind" unwindAction="unwindToView:" id="eL1-yf-Bgl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -344,7 +344,7 @@
                     <navigationItem key="navigationItem" title="Meeting Detail" id="W18-bp-wGU">
                         <barButtonItem key="leftBarButtonItem" title="List" id="Nx6-YM-WZb">
                             <connections>
-                                <segue destination="TYh-TT-Xm7" kind="unwind" unwindAction="unwindToList:" id="Xgw-tO-Odq"/>
+                                <segue destination="TYh-TT-Xm7" kind="unwind" unwindAction="unwindToView:" id="f6O-MU-P08"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="1pE-Oz-HI0">
@@ -391,6 +391,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tnv-52-d1n"/>
+        <segue reference="GTx-of-QKT"/>
     </inferredMetricsTieBreakers>
 </document>
