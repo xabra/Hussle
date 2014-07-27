@@ -239,7 +239,7 @@
     // Date formatter
     // TODO - Put this in a less frequently accessed place so not constantly allocating it
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle: NSDateFormatterShortStyle];       // No date
+    [dateFormatter setDateStyle: NSDateFormatterNoStyle];       // No date
     [dateFormatter setTimeStyle: NSDateFormatterShortStyle];    // Time only
     
     // Configure the cell...

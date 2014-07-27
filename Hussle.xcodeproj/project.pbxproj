@@ -25,6 +25,9 @@
 		88BF0D3D1969AF7E00F49C36 /* VAXInvitee.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D381969AF7E00F49C36 /* VAXInvitee.m */; };
 		88BF0D3E1969AF7E00F49C36 /* VAXCalendarListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3A1969AF7E00F49C36 /* VAXCalendarListController.m */; };
 		88BF0D3F1969AF7E00F49C36 /* VAXEditMeetingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF0D3C1969AF7E00F49C36 /* VAXEditMeetingController.m */; };
+		88DDA3101984A74F0067C602 /* VAXLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DDA30F1984A74F0067C602 /* VAXLocationViewController.m */; };
+		88DDA3121984A88C0067C602 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DDA3111984A88C0067C602 /* CoreLocation.framework */; };
+		88DDA3161984BE980067C602 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DDA3151984BE980067C602 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,10 @@
 		88BF0D3A1969AF7E00F49C36 /* VAXCalendarListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXCalendarListController.m; sourceTree = "<group>"; };
 		88BF0D3B1969AF7E00F49C36 /* VAXEditMeetingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXEditMeetingController.h; sourceTree = "<group>"; };
 		88BF0D3C1969AF7E00F49C36 /* VAXEditMeetingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXEditMeetingController.m; sourceTree = "<group>"; };
+		88DDA30E1984A74F0067C602 /* VAXLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAXLocationViewController.h; sourceTree = "<group>"; };
+		88DDA30F1984A74F0067C602 /* VAXLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAXLocationViewController.m; sourceTree = "<group>"; };
+		88DDA3111984A88C0067C602 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		88DDA3151984BE980067C602 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +79,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DDA3121984A88C0067C602 /* CoreLocation.framework in Frameworks */,
 				88BF0D091969AE3800F49C36 /* CoreGraphics.framework in Frameworks */,
+				88DDA3161984BE980067C602 /* MapKit.framework in Frameworks */,
 				88BF0D0B1969AE3800F49C36 /* UIKit.framework in Frameworks */,
 				88BF0D071969AE3800F49C36 /* Foundation.framework in Frameworks */,
 			);
@@ -124,6 +133,8 @@
 		88BF0D051969AE3800F49C36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88DDA3151984BE980067C602 /* MapKit.framework */,
+				88DDA3111984A88C0067C602 /* CoreLocation.framework */,
 				88BF0D061969AE3800F49C36 /* Foundation.framework */,
 				88BF0D081969AE3800F49C36 /* CoreGraphics.framework */,
 				88BF0D0A1969AE3800F49C36 /* UIKit.framework */,
@@ -137,6 +148,8 @@
 			children = (
 				88145E1C196A42A600FCC0B0 /* Models */,
 				88BF0D351969AF5C00F49C36 /* Main.storyboard */,
+				88DDA30E1984A74F0067C602 /* VAXLocationViewController.h */,
+				88DDA30F1984A74F0067C602 /* VAXLocationViewController.m */,
 				88BF0D391969AF7E00F49C36 /* VAXCalendarListController.h */,
 				88BF0D3A1969AF7E00F49C36 /* VAXCalendarListController.m */,
 				8862CAEB1971BEE30070F200 /* VAXMeetingDetailController.h */,
@@ -230,6 +243,14 @@
 				TargetAttributes = {
 					88BF0D021969AE3800F49C36 = {
 						DevelopmentTeam = TM3N8JBBNP;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					88BF0D1D1969AE3900F49C36 = {
 						TestTargetID = 88BF0D021969AE3800F49C36;
@@ -285,6 +306,7 @@
 				880B980E196A5948004A14F4 /* VAXMeeting.m in Sources */,
 				8832D9DC1974E3620037027B /* VAXMeetingDetailController.m in Sources */,
 				88BF0D131969AE3800F49C36 /* main.m in Sources */,
+				88DDA3101984A74F0067C602 /* VAXLocationViewController.m in Sources */,
 				88BF0D3E1969AF7E00F49C36 /* VAXCalendarListController.m in Sources */,
 				88BF0D3D1969AF7E00F49C36 /* VAXInvitee.m in Sources */,
 			);
@@ -407,6 +429,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hussle/Hussle-Prefix.pch";
 				INFOPLIST_FILE = "Hussle/Hussle-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -421,6 +444,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hussle/Hussle-Prefix.pch";
 				INFOPLIST_FILE = "Hussle/Hussle-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
